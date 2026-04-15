@@ -189,14 +189,14 @@ impl Signer for DynSigner {
         self.0.try_pubkey()
     }
 
-    fn sign_message(&self, message: &[u8]) -> solana_sdk::signature::Signature {
+    fn sign_message(&self, message: &[u8]) -> solana_sdk::signature::TypedSignature {
         self.0.sign_message(message)
     }
 
     fn try_sign_message(
         &self,
         message: &[u8],
-    ) -> Result<solana_sdk::signature::Signature, solana_sdk::signer::SignerError> {
+    ) -> Result<solana_sdk::signature::TypedSignature, solana_sdk::signer::SignerError> {
         self.0.try_sign_message(message)
     }
 

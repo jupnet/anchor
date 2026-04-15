@@ -21,3 +21,23 @@ exclude = [
     "tests/cfo/deps/openbook-dex",
 ]
 resolver = "2"
+
+[workspace.dependencies]
+solana-account-decoder = { package = "jupnet-account-decoder", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+solana-cli-config = { package = "jupnet-cli-config", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+solana-client = { package = "jupnet-client", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+solana-faucet = { package = "jupnet-faucet", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+solana-program = { package = "jupnet-program", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+solana-program-test = { package = "jupnet-program-test", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+solana-sdk = { package = "jupnet-sdk", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+spl-associated-token-account = { package = "jpl-associated-token-account", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+spl-discriminator = { package = "jpl-discriminator", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+spl-memo = { package = "jpl-memo", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+spl-pod = { package = "jpl-pod", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+spl-tlv-account-resolution = { package = "jpl-tlv-account-resolution", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+spl-token = { package = "jpl-token", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+spl-token-2022 = { package = "jpl-token-2022", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+spl-token-group-interface = { package = "jpl-token-group-interface", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+spl-token-metadata-interface = { package = "jpl-token-metadata-interface", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+spl-transfer-hook-interface = { package = "jpl-transfer-hook-interface", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+spl-type-length-value = { package = "jpl-type-length-value", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }

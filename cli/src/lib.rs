@@ -584,8 +584,8 @@ fn override_toolchain(cfg_override: &ConfigOverride) -> Result<RestoreToolchainC
         if let Some(solana_version) = &cfg.toolchain.solana_version {
             let current_version = get_current_version("solana")?;
             if solana_version != &current_version {
-                // We are overriding with `solana-install` command instead of using the binaries
-                // from `~/.local/share/solana/install/releases` because we use multiple Solana
+                // We are overriding with the installer command instead of using the binaries
+                // from `~/.local/share/solana/install/releases` because we use multiple SVM
                 // binaries in various commands.
                 fn override_solana_version(version: String) -> Result<bool> {
                     // There is a deprecation warning message starting with `1.18.19` which causes
@@ -3440,9 +3440,9 @@ fn run_test_suite(
     Ok(())
 }
 
-// Returns the solana-test-validator flags. This will embed the workspace
+// Returns the jupnet-test-validator flags. This will embed the workspace
 // programs in the genesis block so we don't have to deploy every time. It also
-// allows control of other solana-test-validator features.
+// allows control of other validator features.
 fn validator_flags(
     cfg: &WithPath<Config>,
     test_validator: &Option<TestValidator>,
@@ -3707,7 +3707,7 @@ fn start_test_validator(
         ));
     }
 
-    let mut validator_handle = std::process::Command::new("solana-test-validator")
+    let mut validator_handle = std::process::Command::new("jupnet-test-validator")
         .arg("--ledger")
         .arg(test_ledger_directory)
         .arg("--mint")
@@ -3716,7 +3716,7 @@ fn start_test_validator(
         .stdout(test_validator_stdout)
         .stderr(test_validator_stderr)
         .spawn()
-        .map_err(|e| anyhow!("Failed to spawn `solana-test-validator`: {e}"))?;
+        .map_err(|e| anyhow!("Failed to spawn `jupnet-test-validator`: {e}"))?;
 
     // Wait for the validator to be ready.
     let client = create_client(rpc_url);
@@ -3744,7 +3744,7 @@ fn start_test_validator(
     Ok(validator_handle)
 }
 
-// Return the URL that solana-test-validator should be running on given the
+// Return the URL that jupnet-test-validator should be running on given the
 // configuration
 fn test_validator_rpc_url(test_validator: &Option<TestValidator>) -> String {
     match test_validator {
@@ -3756,7 +3756,7 @@ fn test_validator_rpc_url(test_validator: &Option<TestValidator>) -> String {
     }
 }
 
-// Setup and return paths to the solana-test-validator ledger directory and log
+// Setup and return paths to the jupnet-test-validator ledger directory and log
 // files given the configuration
 fn test_validator_file_paths(test_validator: &Option<TestValidator>) -> Result<(PathBuf, PathBuf)> {
     let ledger_path = match test_validator {
@@ -3787,7 +3787,7 @@ fn cluster_url(cfg: &Config, test_validator: &Option<TestValidator>) -> String {
     let is_localnet = cfg.provider.cluster == Cluster::Localnet;
     match is_localnet {
         // Cluster is Localnet, assume the intent is to use the configuration
-        // for solana-test-validator
+        // for jupnet-test-validator
         true => test_validator_rpc_url(test_validator),
         false => cfg.provider.cluster.url().to_string(),
     }
