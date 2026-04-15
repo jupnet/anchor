@@ -208,7 +208,7 @@ idl-build = ["anchor-lang/idl-build"]
 
 [dependencies]
 anchor-lang = "{3}"
-bytemuck = "=1.23.1"
+bytemuck = {{ version = "=1.23.1", features = ["derive"] }}
 bytemuck_derive = "=1.8.1"
 {4}
 "#,
