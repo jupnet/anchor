@@ -25,8 +25,11 @@ impl_idl_build!(crate::metadata::TokenRecordAccount);
 #[cfg(feature = "stake")]
 impl_idl_build!(crate::stake::StakeAccount);
 
-impl_idl_build!(crate::token::Mint);
-impl_idl_build!(crate::token::TokenAccount);
+// Temporarily unsupported in the Jupnet adapter. Keep `token.rs` intact and out of the build.
+// impl_idl_build!(crate::token::Mint);
+// impl_idl_build!(crate::token::TokenAccount);
 
+#[cfg(any(feature = "token_2022", feature = "token_2022_extensions"))]
 impl_idl_build!(crate::token_interface::Mint);
+#[cfg(any(feature = "token_2022", feature = "token_2022_extensions"))]
 impl_idl_build!(crate::token_interface::TokenAccount);

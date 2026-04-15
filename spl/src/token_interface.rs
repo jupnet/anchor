@@ -5,7 +5,8 @@ use spl_token_2022::extension::ExtensionType;
 use spl_token_2022::extension::{BaseStateWithExtensions, Extension, StateWithExtensions};
 use std::ops::Deref;
 
-pub use crate::token_2022::*;
+pub use spl_token;
+pub use spl_token_2022;
 #[cfg(feature = "token_2022_extensions")]
 pub use crate::token_2022_extensions::*;
 
