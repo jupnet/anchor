@@ -179,8 +179,8 @@ fn cargo_toml(name: &str, with_mollusk: bool) -> String {
     let dev_dependencies = if with_mollusk {
         r#"
 [dev-dependencies]
-mollusk-svm = "=0.0.15"
-solana-program = "~2.1"
+mollusk-svm = { git = "https://github.com/jupnet/mollusk.git", rev = "c9e03634889b6aa60195c5eaf543f1473ccc67e9" }
+solana-program = { package = "jupnet-program", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
 "#
     } else {
         ""

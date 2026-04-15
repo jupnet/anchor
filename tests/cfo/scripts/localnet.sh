@@ -22,7 +22,7 @@ main () {
 		rm -f $CRANK_LOGS && touch $CRANK_LOGS
 
 		echo "Starting local network..."
-		solana-test-validator \
+		jupnet-test-validator \
 				--bpf-program srmqPvymJeFKQ4zGQed1GFppgkRHL9kaELCbyksJtPX ./deps/openbook-dex/dex/target/deploy/serum_dex.so \
 				--bpf-program 22Y43yTVxuUkoRKdm9thyRhQ3SdgQS7c7kB6UNCiaczD ./deps/swap/target/deploy/swap.so \
 				--bpf-program GrAkKfEpTKQuVHG2Y97Y2FF4i7y7Q5AHLK94JBy7Y5yv ./deps/stake/target/deploy/registry.so \
