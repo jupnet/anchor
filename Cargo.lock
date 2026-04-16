@@ -299,6 +299,7 @@ dependencies = [
  "jpl-token-2022",
  "jpl-token-group-interface",
  "jpl-token-metadata-interface",
+ "jupnet-program",
  "mpl-token-metadata",
 ]
 

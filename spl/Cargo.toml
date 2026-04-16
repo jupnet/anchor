@@ -29,6 +29,7 @@ token_2022_extensions = ["spl-token", "spl-token-2022", "spl-token-group-interfa
 
 [dependencies]
 anchor-lang = { path = "../lang", version = "0.31.1", features = ["derive"] }
+solana-program = { workspace = true }
 borsh = { version = "0.10.3", optional = true }
 mpl-token-metadata = { version = "5", optional = true }
 spl-associated-token-account = { workspace = true, features = ["no-entrypoint"], optional = true }
