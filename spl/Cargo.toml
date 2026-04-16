@@ -18,6 +18,8 @@ devnet = []
 governance = []
 idl-build = ["anchor-lang/idl-build"]
 memo = ["spl-memo"]
+# Temporarily unsupported in the Jupnet adapter. Keep the feature definition so
+# the upstream surface is visible, but do not wire the module into the build.
 metadata = ["mpl-token-metadata"]
 mint = []
 stake = ["borsh"]

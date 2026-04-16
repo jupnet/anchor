@@ -15,12 +15,14 @@ macro_rules! impl_idl_build {
     };
 }
 
-#[cfg(feature = "metadata")]
-impl_idl_build!(crate::metadata::MetadataAccount);
-#[cfg(feature = "metadata")]
-impl_idl_build!(crate::metadata::MasterEditionAccount);
-#[cfg(feature = "metadata")]
-impl_idl_build!(crate::metadata::TokenRecordAccount);
+// Temporarily unsupported in the Jupnet adapter. Keep `metadata.rs` intact and
+// out of the build, including IDL helper wiring.
+// #[cfg(feature = "metadata")]
+// impl_idl_build!(crate::metadata::MetadataAccount);
+// #[cfg(feature = "metadata")]
+// impl_idl_build!(crate::metadata::MasterEditionAccount);
+// #[cfg(feature = "metadata")]
+// impl_idl_build!(crate::metadata::TokenRecordAccount);
 
 #[cfg(feature = "stake")]
 impl_idl_build!(crate::stake::StakeAccount);
