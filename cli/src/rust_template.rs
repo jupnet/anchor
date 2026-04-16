@@ -18,6 +18,9 @@ use std::{
     process::Stdio,
 };
 
+const JUPNET_ANCHOR_GIT_URL: &str = "https://github.com/jupnet/anchor.git";
+const JUPNET_ANCHOR_GIT_BRANCH: &str = "jupnet/v0.31.1";
+
 /// Program initialization template
 #[derive(Clone, Debug, Default, Eq, PartialEq, Parser, ValueEnum)]
 pub enum ProgramTemplate {
@@ -207,15 +210,19 @@ idl-build = ["anchor-lang/idl-build"]
 {2}
 
 [dependencies]
-anchor-lang = "{3}"
+anchor-lang = {{ git = "{3}", branch = "{4}" }}
 bytemuck = {{ version = "=1.23.1", features = ["derive"] }}
 bytemuck_derive = "=1.8.1"
-{4}
+
+# If you need anchor-spl on Jupnet, use:
+# anchor-spl = {{ git = "https://github.com/jupnet/anchor.git", branch = "{4}", default-features = false, features = ["token_2022_extensions"] }}
+{5}
 "#,
         name,
         name.to_snake_case(),
         test_sbf_feature,
-        VERSION,
+        JUPNET_ANCHOR_GIT_URL,
+        JUPNET_ANCHOR_GIT_BRANCH,
         dev_dependencies,
     )
 }
@@ -758,10 +765,12 @@ description = "Created with Anchor"
 edition = "2021"
 
 [dependencies]
-anchor-client = "{0}"
-{1} = {{ version = "0.1.0", path = "../programs/{1}" }}
+anchor-client = {{ git = "{0}", branch = "{1}" }}
+{2} = {{ version = "0.1.0", path = "../programs/{2}" }}
 "#,
-        VERSION, name,
+        JUPNET_ANCHOR_GIT_URL,
+        JUPNET_ANCHOR_GIT_BRANCH,
+        name,
     )
 }
 
