@@ -2,13 +2,14 @@ use anchor_lang::solana_program::account_info::AccountInfo;
 use anchor_lang::solana_program::pubkey::Pubkey;
 use anchor_lang::Result;
 use anchor_lang::{context::CpiContext, Accounts};
+use ethnum::U256;
 
 pub fn transfer_fee_initialize<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, TransferFeeInitialize<'info>>,
     transfer_fee_config_authority: Option<&Pubkey>,
     withdraw_withheld_authority: Option<&Pubkey>,
     transfer_fee_basis_points: u16,
-    maximum_fee: u64,
+    maximum_fee: U256,
 ) -> Result<()> {
     let ix = spl_token_2022::extension::transfer_fee::instruction::initialize_transfer_fee_config(
         ctx.accounts.token_program_id.key,
@@ -16,7 +17,7 @@ pub fn transfer_fee_initialize<'info>(
         transfer_fee_config_authority,
         withdraw_withheld_authority,
         transfer_fee_basis_points,
-        maximum_fee.into(),
+        maximum_fee,
     )?;
     anchor_lang::solana_program::program::invoke_signed(
         &ix,
@@ -35,7 +36,7 @@ pub struct TransferFeeInitialize<'info> {
 pub fn transfer_fee_set<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, TransferFeeSetTransferFee<'info>>,
     transfer_fee_basis_points: u16,
-    maximum_fee: u64,
+    maximum_fee: U256,
 ) -> Result<()> {
     let ix = spl_token_2022::extension::transfer_fee::instruction::set_transfer_fee(
         ctx.accounts.token_program_id.key,
@@ -43,7 +44,7 @@ pub fn transfer_fee_set<'info>(
         ctx.accounts.authority.key,
         &[],
         transfer_fee_basis_points,
-        maximum_fee.into(),
+        maximum_fee,
     )?;
     anchor_lang::solana_program::program::invoke_signed(
         &ix,
@@ -66,9 +67,9 @@ pub struct TransferFeeSetTransferFee<'info> {
 
 pub fn transfer_checked_with_fee<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, TransferCheckedWithFee<'info>>,
-    amount: u64,
+    amount: U256,
     decimals: u8,
-    fee: u64,
+    fee: U256,
 ) -> Result<()> {
     let ix = spl_token_2022::extension::transfer_fee::instruction::transfer_checked_with_fee(
         ctx.accounts.token_program_id.key,
@@ -77,9 +78,9 @@ pub fn transfer_checked_with_fee<'info>(
         ctx.accounts.destination.key,
         ctx.accounts.authority.key,
         &[],
-        amount.into(),
+        amount,
         decimals,
-        fee.into(),
+        fee,
     )?;
     anchor_lang::solana_program::program::invoke_signed(
         &ix,

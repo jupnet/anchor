@@ -292,6 +292,7 @@ version = "0.31.1"
 dependencies = [
  "anchor-lang",
  "borsh 0.10.4",
+ "ethnum",
  "jpl-associated-token-account",
  "jpl-memo",
  "jpl-pod",
