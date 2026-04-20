@@ -6,9 +6,9 @@ use spl_token_2022::extension::{BaseStateWithExtensions, Extension, StateWithExt
 use std::ops::Deref;
 
 pub use spl_token;
-pub use spl_token_2022;
+pub use crate::jpl_token_2022::*;
 #[cfg(feature = "token_2022_extensions")]
-pub use crate::token_2022_extensions::*;
+pub use crate::jpl_token_2022_extensions::*;
 
 static IDS: [Pubkey; 2] = [spl_token::ID, spl_token_2022::ID];
 

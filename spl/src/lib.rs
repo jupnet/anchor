@@ -16,11 +16,17 @@ pub mod mint;
 // #[cfg(feature = "token_2022")]
 // pub mod token_2022;
 
+#[cfg(any(feature = "token_2022", feature = "token_2022_extensions"))]
+pub mod jpl_token_2022;
+
 // Compile the Jupnet-specific copy while leaving the upstream
 // `token_2022_extensions/` sources untouched in the tree.
 #[cfg(feature = "token_2022_extensions")]
-#[path = "jpl_token_2022_extensions/mod.rs"]
-pub mod token_2022_extensions;
+pub mod jpl_token_2022_extensions;
+
+// Keep the upstream public path stable while routing it to the Jupnet-specific copy.
+#[cfg(feature = "token_2022_extensions")]
+pub use jpl_token_2022_extensions as token_2022_extensions;
 
 #[cfg(any(feature = "token_2022", feature = "token_2022_extensions"))]
 pub mod token_interface;
