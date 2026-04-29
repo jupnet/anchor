@@ -57,6 +57,8 @@ pub use anchor_attribute_error::*;
 pub use anchor_attribute_event::{emit, event};
 pub use anchor_attribute_program::{declare_program, instruction, program};
 pub use anchor_derive_accounts::Accounts;
+#[doc(hidden)]
+pub use anchor_derive_serde::__erase;
 pub use anchor_derive_serde::{AnchorDeserialize, AnchorSerialize};
 pub use anchor_derive_space::InitSpace;
 

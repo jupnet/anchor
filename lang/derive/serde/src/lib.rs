@@ -3,30 +3,22 @@ extern crate proc_macro;
 #[cfg(feature = "lazy-account")]
 mod lazy;
 
-use borsh_derive_internal::*;
 use proc_macro::TokenStream;
 use proc_macro2::{Span, TokenStream as TokenStream2};
-use syn::{Ident, Item};
+use proc_macro_crate::FoundCrate;
+use quote::quote;
+use syn::Ident;
 
 fn gen_borsh_serialize(input: TokenStream) -> TokenStream2 {
-    let cratename = Ident::new("borsh", Span::call_site());
-
-    let item: Item = syn::parse(input).unwrap();
-    let res = match item {
-        Item::Struct(item) => struct_ser(&item, cratename),
-        Item::Enum(item) => enum_ser(&item, cratename),
-        Item::Union(item) => union_ser(&item, cratename),
-        // Derive macros can only be defined on structs, enums, and unions.
-        _ => unreachable!(),
-    };
-
-    match res {
-        Ok(res) => res,
-        Err(err) => err.to_compile_error(),
+    let input = TokenStream2::from(input);
+    let attrs = helper_attrs("BorshSerialize");
+    quote! {
+        #attrs
+        #input
     }
 }
 
-#[proc_macro_derive(AnchorSerialize, attributes(borsh_skip))]
+#[proc_macro_derive(AnchorSerialize, attributes(borsh, borsh_skip))]
 pub fn anchor_serialize(input: TokenStream) -> TokenStream {
     #[cfg(not(feature = "idl-build"))]
     let ret = gen_borsh_serialize(input);
@@ -37,6 +29,7 @@ pub fn anchor_serialize(input: TokenStream) -> TokenStream {
     {
         use anchor_syn::idl::*;
         use quote::quote;
+        use syn::Item;
 
         let idl_build_impl = match syn::parse(input).unwrap() {
             Item::Struct(item) => impl_idl_build_struct(&item),
@@ -57,24 +50,15 @@ pub fn anchor_serialize(input: TokenStream) -> TokenStream {
 }
 
 fn gen_borsh_deserialize(input: TokenStream) -> TokenStream2 {
-    let cratename = Ident::new("borsh", Span::call_site());
-
-    let item: Item = syn::parse(input).unwrap();
-    let res = match item {
-        Item::Struct(item) => struct_de(&item, cratename),
-        Item::Enum(item) => enum_de(&item, cratename),
-        Item::Union(item) => union_de(&item, cratename),
-        // Derive macros can only be defined on structs, enums, and unions.
-        _ => unreachable!(),
-    };
-
-    match res {
-        Ok(res) => res,
-        Err(err) => err.to_compile_error(),
+    let input = TokenStream2::from(input);
+    let attrs = helper_attrs("BorshDeserialize");
+    quote! {
+        #attrs
+        #input
     }
 }
 
-#[proc_macro_derive(AnchorDeserialize, attributes(borsh_skip, borsh_init))]
+#[proc_macro_derive(AnchorDeserialize, attributes(borsh, borsh_skip, borsh_init))]
 pub fn borsh_deserialize(input: TokenStream) -> TokenStream {
     #[cfg(feature = "lazy-account")]
     {
@@ -96,4 +80,37 @@ pub fn lazy(input: TokenStream) -> TokenStream {
     lazy::gen_lazy(input)
         .unwrap_or_else(|e| e.to_compile_error())
         .into()
+}
+
+fn helper_attrs(mac: &str) -> TokenStream2 {
+    // Borsh derives cannot be emitted directly from another derive macro, so emit
+    // a duplicate item with the inner derive and erase that duplicate afterwards.
+    let mac_path = Ident::new(mac, Span::call_site());
+    let anchor_path = anchor_path();
+    let borsh_path = quote! { #anchor_path::prelude::borsh };
+    let borsh_path_str = borsh_path.to_string();
+
+    quote! {
+        #[derive(#borsh_path::#mac_path)]
+        #[borsh(crate = #borsh_path_str)]
+        #[#anchor_path::__erase]
+    }
+}
+
+fn anchor_path() -> TokenStream2 {
+    match proc_macro_crate::crate_name("anchor-lang")
+        .expect("`anchor-derive-serde` must be used through `anchor-lang`")
+    {
+        FoundCrate::Itself => quote! { crate },
+        FoundCrate::Name(name) => {
+            let ident = Ident::new(&name, Span::call_site());
+            quote! { #ident }
+        }
+    }
+}
+
+#[doc(hidden)]
+#[proc_macro_attribute]
+pub fn __erase(_: TokenStream, _: TokenStream) -> TokenStream {
+    TokenStream::new()
 }
