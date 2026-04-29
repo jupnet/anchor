@@ -23,21 +23,21 @@ exclude = [
 resolver = "2"
 
 [workspace.dependencies]
-solana-account-decoder = { package = "jupnet-account-decoder", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-solana-cli-config = { package = "jupnet-cli-config", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-solana-client = { package = "jupnet-client", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-solana-faucet = { package = "jupnet-faucet", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-solana-program = { package = "jupnet-program", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-solana-program-test = { package = "jupnet-program-test", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-solana-sdk = { package = "jupnet-sdk", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-spl-associated-token-account = { package = "jpl-associated-token-account", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-spl-discriminator = { package = "jpl-discriminator", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-spl-memo = { package = "jpl-memo", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-spl-pod = { package = "jpl-pod", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-spl-tlv-account-resolution = { package = "jpl-tlv-account-resolution", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-spl-token = { package = "jpl-token", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-spl-token-2022 = { package = "jpl-token-2022", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-spl-token-group-interface = { package = "jpl-token-group-interface", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-spl-token-metadata-interface = { package = "jpl-token-metadata-interface", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-spl-transfer-hook-interface = { package = "jpl-transfer-hook-interface", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
-spl-type-length-value = { package = "jpl-type-length-value", git = "https://github.com/jupnet/jupnet-svm.git", batnch = "bytemuck-bump"" }
+solana-account-decoder = { package = "jupnet-account-decoder", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+solana-cli-config = { package = "jupnet-cli-config", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+solana-client = { package = "jupnet-client", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+solana-faucet = { package = "jupnet-faucet", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+solana-program = { package = "jupnet-program", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+solana-program-test = { package = "jupnet-program-test", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+solana-sdk = { package = "jupnet-sdk", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+spl-associated-token-account = { package = "jpl-associated-token-account", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+spl-discriminator = { package = "jpl-discriminator", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+spl-memo = { package = "jpl-memo", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+spl-pod = { package = "jpl-pod", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+spl-tlv-account-resolution = { package = "jpl-tlv-account-resolution", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+spl-token = { package = "jpl-token", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+spl-token-2022 = { package = "jpl-token-2022", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+spl-token-group-interface = { package = "jpl-token-group-interface", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+spl-token-metadata-interface = { package = "jpl-token-metadata-interface", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+spl-transfer-hook-interface = { package = "jpl-transfer-hook-interface", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
+spl-type-length-value = { package = "jpl-type-length-value", git = "https://github.com/jupnet/jupnet-svm.git", branch = "bytemuck-bump" }
