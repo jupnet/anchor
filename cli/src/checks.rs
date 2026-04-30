@@ -89,12 +89,12 @@ pub fn check_anchor_version(cfg: &WithPath<Config>) -> Result<()> {
 
 /// Check for potential dependency improvements.
 ///
-/// The main problem people will run into with Solana v2 is that the `solana-program` version
+/// The main problem people will run into with Solana v2 is that the program crate version
 /// specified in users' `Cargo.toml` might be incompatible with `anchor-lang`'s dependency.
 /// To fix this and similar problems, users should use the crates exported from `anchor-lang` or
 /// `anchor-spl` when possible.
 pub fn check_deps(cfg: &WithPath<Config>) -> Result<()> {
-    // Check `solana-program`
+    // Check direct program crate dependencies.
     cfg.get_rust_program_list()?
         .into_iter()
         .map(|path| path.join("Cargo.toml"))
@@ -102,11 +102,19 @@ pub fn check_deps(cfg: &WithPath<Config>) -> Result<()> {
         .map(|man| man.map_err(|e| anyhow!("Failed to read manifest: {e}")))
         .collect::<Result<Vec<_>>>()?
         .into_iter()
-        .filter(|man| man.dependencies.contains_key("solana-program"))
-        .for_each(|man| {
+        .filter_map(|man| {
+            if man.dependencies.contains_key("jupnet-program") {
+                Some((man, "jupnet-program"))
+            } else if man.dependencies.contains_key("solana-program") {
+                Some((man, "solana-program"))
+            } else {
+                None
+            }
+        })
+        .for_each(|(man, dep_name)| {
             eprintln!(
-                "WARNING: Adding `solana-program` as a separate dependency might cause conflicts.\n\
-                To solve, remove the `solana-program` dependency and use the exported crate from \
+                "WARNING: Adding `{dep_name}` as a separate dependency might cause conflicts.\n\
+                To solve, remove the `{dep_name}` dependency and use the exported crate from \
                 `anchor-lang`.\n\
                 `use solana_program` becomes `use anchor_lang::solana_program`.\n\
                 Program name: `{}`\n",

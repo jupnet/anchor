@@ -17,7 +17,7 @@
 
 use anchor_lang::prelude::*;
 use anchor_spl::{
-    token_2022::spl_token_2022::instruction::AuthorityType,
+    token_2022::jpl_token_2022::instruction::AuthorityType,
     token_interface::{self, Mint, SetAuthority, TokenAccount, TokenInterface, TransferChecked},
 };
 

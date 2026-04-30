@@ -1,7 +1,7 @@
 use crate::prelude::*;
-use solana_program::pubkey::Pubkey;
+use jupnet_program::pubkey::Pubkey;
 
-pub use solana_program::system_program::ID;
+pub use jupnet_program::system_program::ID;
 
 #[derive(Debug, Clone)]
 pub struct System;

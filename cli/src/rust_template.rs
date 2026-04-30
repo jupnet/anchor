@@ -5,7 +5,7 @@ use crate::{
 use anyhow::Result;
 use clap::{Parser, ValueEnum};
 use heck::{ToLowerCamelCase, ToPascalCase, ToSnakeCase};
-use solana_sdk::{
+use jupnet_sdk::{
     pubkey::Pubkey,
     signature::{read_keypair_file, write_keypair_file, Keypair},
     signer::Signer,
@@ -183,7 +183,7 @@ fn cargo_toml(name: &str, with_mollusk: bool) -> String {
         r#"
 [dev-dependencies]
 mollusk-svm = { git = "https://github.com/jupnet/mollusk.git", rev = "c9e03634889b6aa60195c5eaf543f1473ccc67e9" }
-solana-program = { package = "jupnet-program", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+jupnet-program = { git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
 "#
     } else {
         ""
@@ -768,9 +768,7 @@ edition = "2021"
 anchor-client = {{ git = "{0}", branch = "{1}" }}
 {2} = {{ version = "0.1.0", path = "../programs/{2}" }}
 "#,
-        JUPNET_ANCHOR_GIT_URL,
-        JUPNET_ANCHOR_GIT_BRANCH,
-        name,
+        JUPNET_ANCHOR_GIT_URL, JUPNET_ANCHOR_GIT_BRANCH, name,
     )
 }
 
@@ -791,7 +789,7 @@ mod test_initialize;
                 r#"use std::str::FromStr;
 
 use anchor_client::{{
-    solana_sdk::{{
+    jupnet_sdk::{{
         commitment_config::CommitmentConfig, pubkey::Pubkey, signature::read_keypair_file,
     }},
     Client, Cluster,

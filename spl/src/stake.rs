@@ -1,6 +1,6 @@
 use anchor_lang::{
     context::CpiContext,
-    solana_program::{
+    jupnet_program::{
         account_info::AccountInfo,
         pubkey::Pubkey,
         stake::{

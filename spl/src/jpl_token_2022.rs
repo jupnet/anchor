@@ -4,8 +4,9 @@ use anchor_lang::Result;
 use anchor_lang::{context::CpiContext, Accounts};
 use ethnum::U256;
 
-pub use spl_token_2022;
-pub use spl_token_2022::ID;
+pub use jpl_token_2022;
+pub use jpl_token_2022 as spl_token_2022;
+pub use jpl_token_2022::ID;
 
 #[deprecated(
     since = "0.28.0",
@@ -16,7 +17,7 @@ pub fn transfer<'info, A: Into<U256>>(
     amount: A,
 ) -> Result<()> {
     #[allow(deprecated)]
-    let ix = spl_token_2022::instruction::transfer(
+    let ix = jpl_token_2022::instruction::transfer(
         ctx.program.key,
         ctx.accounts.from.key,
         ctx.accounts.to.key,
@@ -37,7 +38,7 @@ pub fn transfer_checked<'info, A: Into<U256>>(
     amount: A,
     decimals: u8,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::transfer_checked(
+    let ix = jpl_token_2022::instruction::transfer_checked(
         ctx.program.key,
         ctx.accounts.from.key,
         ctx.accounts.mint.key,
@@ -64,7 +65,7 @@ pub fn mint_to<'info, A: Into<U256>>(
     ctx: CpiContext<'_, '_, '_, 'info, MintTo<'info>>,
     amount: A,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::mint_to(
+    let ix = jpl_token_2022::instruction::mint_to(
         ctx.program.key,
         ctx.accounts.mint.key,
         ctx.accounts.to.key,
@@ -85,7 +86,7 @@ pub fn mint_to_checked<'info, A: Into<U256>>(
     amount: A,
     decimals: u8,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::mint_to_checked(
+    let ix = jpl_token_2022::instruction::mint_to_checked(
         ctx.program.key,
         ctx.accounts.mint.key,
         ctx.accounts.to.key,
@@ -106,7 +107,7 @@ pub fn burn<'info, A: Into<U256>>(
     ctx: CpiContext<'_, '_, '_, 'info, Burn<'info>>,
     amount: A,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::burn(
+    let ix = jpl_token_2022::instruction::burn(
         ctx.program.key,
         ctx.accounts.from.key,
         ctx.accounts.mint.key,
@@ -127,7 +128,7 @@ pub fn burn_checked<'info, A: Into<U256>>(
     amount: A,
     decimals: u8,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::burn_checked(
+    let ix = jpl_token_2022::instruction::burn_checked(
         ctx.program.key,
         ctx.accounts.from.key,
         ctx.accounts.mint.key,
@@ -148,7 +149,7 @@ pub fn approve<'info, A: Into<U256>>(
     ctx: CpiContext<'_, '_, '_, 'info, Approve<'info>>,
     amount: A,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::approve(
+    let ix = jpl_token_2022::instruction::approve(
         ctx.program.key,
         ctx.accounts.to.key,
         ctx.accounts.delegate.key,
@@ -173,7 +174,7 @@ pub fn approve_checked<'info, A: Into<U256>>(
     amount: A,
     decimals: u8,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::approve_checked(
+    let ix = jpl_token_2022::instruction::approve_checked(
         ctx.program.key,
         ctx.accounts.to.key,
         ctx.accounts.mint.key,
@@ -197,7 +198,7 @@ pub fn approve_checked<'info, A: Into<U256>>(
 }
 
 pub fn revoke<'info>(ctx: CpiContext<'_, '_, '_, 'info, Revoke<'info>>) -> Result<()> {
-    let ix = spl_token_2022::instruction::revoke(
+    let ix = jpl_token_2022::instruction::revoke(
         ctx.program.key,
         ctx.accounts.source.key,
         ctx.accounts.authority.key,
@@ -214,7 +215,7 @@ pub fn revoke<'info>(ctx: CpiContext<'_, '_, '_, 'info, Revoke<'info>>) -> Resul
 pub fn initialize_account<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, InitializeAccount<'info>>,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::initialize_account(
+    let ix = jpl_token_2022::instruction::initialize_account(
         ctx.program.key,
         ctx.accounts.account.key,
         ctx.accounts.mint.key,
@@ -235,7 +236,7 @@ pub fn initialize_account<'info>(
 pub fn initialize_account3<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, InitializeAccount3<'info>>,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::initialize_account3(
+    let ix = jpl_token_2022::instruction::initialize_account3(
         ctx.program.key,
         ctx.accounts.account.key,
         ctx.accounts.mint.key,
@@ -246,7 +247,7 @@ pub fn initialize_account3<'info>(
 }
 
 pub fn close_account<'info>(ctx: CpiContext<'_, '_, '_, 'info, CloseAccount<'info>>) -> Result<()> {
-    let ix = spl_token_2022::instruction::close_account(
+    let ix = jpl_token_2022::instruction::close_account(
         ctx.program.key,
         ctx.accounts.account.key,
         ctx.accounts.destination.key,
@@ -268,7 +269,7 @@ pub fn close_account<'info>(ctx: CpiContext<'_, '_, '_, 'info, CloseAccount<'inf
 pub fn freeze_account<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, FreezeAccount<'info>>,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::freeze_account(
+    let ix = jpl_token_2022::instruction::freeze_account(
         ctx.program.key,
         ctx.accounts.account.key,
         ctx.accounts.mint.key,
@@ -288,7 +289,7 @@ pub fn freeze_account<'info>(
 }
 
 pub fn thaw_account<'info>(ctx: CpiContext<'_, '_, '_, 'info, ThawAccount<'info>>) -> Result<()> {
-    let ix = spl_token_2022::instruction::thaw_account(
+    let ix = jpl_token_2022::instruction::thaw_account(
         ctx.program.key,
         ctx.accounts.account.key,
         ctx.accounts.mint.key,
@@ -313,7 +314,7 @@ pub fn initialize_mint<'info>(
     authority: &Pubkey,
     freeze_authority: Option<&Pubkey>,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::initialize_mint(
+    let ix = jpl_token_2022::instruction::initialize_mint(
         ctx.program.key,
         ctx.accounts.mint.key,
         authority,
@@ -330,7 +331,7 @@ pub fn initialize_mint2<'info>(
     authority: &Pubkey,
     freeze_authority: Option<&Pubkey>,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::initialize_mint2(
+    let ix = jpl_token_2022::instruction::initialize_mint2(
         ctx.program.key,
         ctx.accounts.mint.key,
         authority,
@@ -342,7 +343,7 @@ pub fn initialize_mint2<'info>(
 
 pub fn set_authority<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, SetAuthority<'info>>,
-    authority_type: spl_token_2022::instruction::AuthorityType,
+    authority_type: jpl_token_2022::instruction::AuthorityType,
     new_authority: Option<Pubkey>,
 ) -> Result<()> {
     let mut spl_new_authority: Option<&Pubkey> = None;
@@ -350,7 +351,7 @@ pub fn set_authority<'info>(
         spl_new_authority = new_authority.as_ref()
     }
 
-    let ix = spl_token_2022::instruction::set_authority(
+    let ix = jpl_token_2022::instruction::set_authority(
         ctx.program.key,
         ctx.accounts.account_or_mint.key,
         spl_new_authority,
@@ -367,15 +368,15 @@ pub fn set_authority<'info>(
 }
 
 pub fn sync_native<'info>(ctx: CpiContext<'_, '_, '_, 'info, SyncNative<'info>>) -> Result<()> {
-    let ix = spl_token_2022::instruction::sync_native(ctx.program.key, ctx.accounts.account.key)?;
+    let ix = jpl_token_2022::instruction::sync_native(ctx.program.key, ctx.accounts.account.key)?;
     anchor_lang::solana_program::program::invoke(&ix, &[ctx.accounts.account]).map_err(Into::into)
 }
 
 pub fn get_account_data_size<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, GetAccountDataSize<'info>>,
-    extension_types: &[spl_token_2022::extension::ExtensionType],
+    extension_types: &[jpl_token_2022::extension::ExtensionType],
 ) -> Result<u64> {
-    let ix = spl_token_2022::instruction::get_account_data_size(
+    let ix = jpl_token_2022::instruction::get_account_data_size(
         ctx.program.key,
         ctx.accounts.mint.key,
         extension_types,
@@ -399,7 +400,7 @@ pub fn initialize_mint_close_authority<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, InitializeMintCloseAuthority<'info>>,
     close_authority: Option<&Pubkey>,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::initialize_mint_close_authority(
+    let ix = jpl_token_2022::instruction::initialize_mint_close_authority(
         ctx.program.key,
         ctx.accounts.mint.key,
         close_authority,
@@ -410,7 +411,7 @@ pub fn initialize_mint_close_authority<'info>(
 pub fn initialize_immutable_owner<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, InitializeImmutableOwner<'info>>,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::initialize_immutable_owner(
+    let ix = jpl_token_2022::instruction::initialize_immutable_owner(
         ctx.program.key,
         ctx.accounts.account.key,
     )?;
@@ -421,7 +422,7 @@ pub fn amount_to_ui_amount<'info, A: Into<U256>>(
     ctx: CpiContext<'_, '_, '_, 'info, AmountToUiAmount<'info>>,
     amount: A,
 ) -> Result<String> {
-    let ix = spl_token_2022::instruction::amount_to_ui_amount(
+    let ix = jpl_token_2022::instruction::amount_to_ui_amount(
         ctx.program.key,
         ctx.accounts.account.key,
         amount.into(),
@@ -445,7 +446,7 @@ pub fn ui_amount_to_amount<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, UiAmountToAmount<'info>>,
     ui_amount: &str,
 ) -> Result<U256> {
-    let ix = spl_token_2022::instruction::ui_amount_to_amount(
+    let ix = jpl_token_2022::instruction::ui_amount_to_amount(
         ctx.program.key,
         ctx.accounts.account.key,
         ui_amount,

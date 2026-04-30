@@ -8,7 +8,7 @@ pub fn metadata_pointer_initialize<'info>(
     authority: Option<Pubkey>,
     metadata_address: Option<Pubkey>,
 ) -> Result<()> {
-    let ix = spl_token_2022::extension::metadata_pointer::instruction::initialize(
+    let ix = jpl_token_2022::extension::metadata_pointer::instruction::initialize(
         ctx.accounts.token_program_id.key,
         ctx.accounts.mint.key,
         authority,

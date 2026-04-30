@@ -405,7 +405,7 @@ pub struct MarketAccounts<'info> {
     bids: AccountInfo<'info>,
     #[account(mut)]
     asks: AccountInfo<'info>,
-    // The `spl_token::Account` that funds will be taken from, i.e., transferred
+    // The `jpl_token::Account` that funds will be taken from, i.e., transferred
     // from the user into the market's vault.
     //
     // For bids, this is the base currency. For asks, the quote.

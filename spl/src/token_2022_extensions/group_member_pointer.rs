@@ -8,7 +8,7 @@ pub fn group_member_pointer_initialize<'info>(
     authority: Option<Pubkey>,
     member_address: Option<Pubkey>,
 ) -> Result<()> {
-    let ix = spl_token_2022::extension::group_member_pointer::instruction::initialize(
+    let ix = jpl_token_2022::extension::group_member_pointer::instruction::initialize(
         ctx.accounts.token_program_id.key,
         ctx.accounts.mint.key,
         authority,
@@ -32,7 +32,7 @@ pub fn group_member_pointer_update<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, GroupMemberPointerUpdate<'info>>,
     member_address: Option<Pubkey>,
 ) -> Result<()> {
-    let ix = spl_token_2022::extension::group_member_pointer::instruction::update(
+    let ix = jpl_token_2022::extension::group_member_pointer::instruction::update(
         ctx.accounts.token_program_id.key,
         ctx.accounts.mint.key,
         ctx.accounts.authority.key,

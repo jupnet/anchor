@@ -13,30 +13,30 @@ rustdoc-args = ["--cfg", "docsrs"]
 [features]
 default = ["associated_token", "mint", "token_2022_extensions"]
 anchor-debug = ["anchor-lang/anchor-debug"]
-associated_token = ["spl-associated-token-account"]
+associated_token = ["jpl-associated-token-account"]
 devnet = []
 governance = []
 idl-build = ["anchor-lang/idl-build"]
-memo = ["spl-memo"]
+memo = ["jpl-memo"]
 # Temporarily unsupported in the Jupnet adapter. Keep the feature definition so
 # the upstream surface is visible, but do not wire the module into the build.
 metadata = ["mpl-token-metadata"]
 mint = []
 stake = ["borsh"]
-token = ["spl-token"]
-token_2022 = ["spl-token", "spl-token-2022", "ethnum"]
-token_2022_extensions = ["spl-token", "spl-token-2022", "spl-token-group-interface", "spl-token-metadata-interface", "spl-pod", "ethnum"]
+token = ["jpl-token"]
+token_2022 = ["jpl-token", "jpl-token-2022", "ethnum"]
+token_2022_extensions = ["jpl-token", "jpl-token-2022", "jpl-token-group-interface", "jpl-token-metadata-interface", "jpl-pod", "ethnum"]
 
 [dependencies]
 anchor-lang = { path = "../lang", version = "0.31.1", features = ["derive"] }
-solana-program = { workspace = true }
+jupnet-program = { workspace = true }
 borsh = { version = "0.10.3", optional = true }
 ethnum = { version = "1.5.2", optional = true }
 mpl-token-metadata = { version = "5", optional = true }
-spl-associated-token-account = { workspace = true, features = ["no-entrypoint"], optional = true }
-spl-memo = { workspace = true, features = ["no-entrypoint"], optional = true }
-spl-token = { workspace = true, features = ["no-entrypoint"], optional = true }
-spl-token-2022 = { workspace = true, features = ["no-entrypoint"], optional = true }
-spl-token-group-interface = { workspace = true, optional = true }
-spl-token-metadata-interface = { workspace = true, optional = true }
-spl-pod = { workspace = true, optional = true }
+jpl-associated-token-account = { workspace = true, features = ["no-entrypoint"], optional = true }
+jpl-memo = { workspace = true, features = ["no-entrypoint"], optional = true }
+jpl-token = { workspace = true, features = ["no-entrypoint"], optional = true }
+jpl-token-2022 = { workspace = true, features = ["no-entrypoint"], optional = true }
+jpl-token-group-interface = { workspace = true, optional = true }
+jpl-token-metadata-interface = { workspace = true, optional = true }
+jpl-pod = { workspace = true, optional = true }

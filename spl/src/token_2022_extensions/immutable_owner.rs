@@ -6,7 +6,7 @@ use anchor_lang::{context::CpiContext, Accounts};
 pub fn immutable_owner_initialize<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, ImmutableOwnerInitialize<'info>>,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::initialize_immutable_owner(
+    let ix = jpl_token_2022::instruction::initialize_immutable_owner(
         ctx.accounts.token_program_id.key,
         ctx.accounts.token_account.key,
     )?;

@@ -2,7 +2,7 @@
 
 use crate::error::ErrorCode;
 use crate::*;
-use solana_program::system_program;
+use jupnet_program::system_program;
 use std::ops::Deref;
 
 /// Type validating that the account is owned by the system program

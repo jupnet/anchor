@@ -2,7 +2,7 @@ use {
     crate::{AuctionHouse, ErrorCode},
     anchor_lang::{
         prelude::*,
-        solana_program::{
+        jupnet_program::{
             program::invoke_signed,
             program_option::COption,
             program_pack::{IsInitialized, Pack},
@@ -10,12 +10,12 @@ use {
         },
     },
     anchor_spl::{
-        associated_token::spl_associated_token_account::{
+        associated_token::jpl_associated_token_account::{
             create_associated_token_account, get_associated_token_address,
         },
         metadata::mpl_token_metadata,
         token::{
-            spl_token::{self, instruction::initialize_account2, state::Account},
+            jpl_token::{self, instruction::initialize_account2, state::Account},
             Mint, Token, TokenAccount,
         },
     },
@@ -23,7 +23,7 @@ use {
     std::{convert::TryInto, slice::Iter},
 };
 pub fn assert_is_ata(ata: &AccountInfo, wallet: &Pubkey, mint: &Pubkey) -> Result<Account> {
-    assert_owned_by(ata, &spl_token::id())?;
+    assert_owned_by(ata, &jpl_token::id())?;
     let ata_account: Account = assert_initialized(ata)?;
     assert_keys_equal(ata_account.owner, *wallet)?;
     assert_keys_equal(get_associated_token_address(wallet, mint), *ata.key)?;
@@ -142,7 +142,7 @@ pub fn assert_valid_delegation(
             msg!("ATAs match")
         }
         Err(_) => {
-            if mint.key() != spl_token::native_mint::id() {
+            if mint.key() != jpl_token::native_mint::id() {
                 return err!(ErrorCode::ExpectedSolAccount);
             }
 
@@ -202,7 +202,7 @@ pub fn pay_auction_house_fees<'a>(
         .ok_or(error!(ErrorCode::NumericalOverflow))? as u64;
     if !is_native {
         invoke_signed(
-            &spl_token::instruction::transfer(
+            &jpl_token::instruction::transfer(
                 token_program.key,
                 &escrow_payment_account.key,
                 &auction_house_treasury.key,
@@ -255,7 +255,7 @@ pub fn create_program_token_account_if_not_present<'a>(
             &rent.to_account_info(),
             &system_program,
             &fee_payer,
-            spl_token::state::Account::LEN,
+            jpl_token::state::Account::LEN,
             fee_seeds,
             signer_seeds,
         )?;
@@ -344,7 +344,7 @@ pub fn pay_creator_fees<'a>(
                     )?;
                     if creator_fee > 0 {
                         invoke_signed(
-                            &spl_token::instruction::transfer(
+                            &jpl_token::instruction::transfer(
                                 token_program.key,
                                 &escrow_payment_account.key,
                                 current_creator_token_account_info.key,

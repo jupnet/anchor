@@ -17,6 +17,19 @@ use flate2::read::ZlibDecoder;
 use flate2::write::{GzEncoder, ZlibEncoder};
 use flate2::Compression;
 use heck::{ToKebabCase, ToLowerCamelCase, ToPascalCase, ToSnakeCase};
+use jupnet_client::rpc_client::RpcClient;
+use jupnet_sdk::account_utils::StateMut;
+use jupnet_sdk::bpf_loader;
+use jupnet_sdk::bpf_loader_deprecated;
+use jupnet_sdk::bpf_loader_upgradeable::{self, UpgradeableLoaderState};
+use jupnet_sdk::commitment_config::CommitmentConfig;
+use jupnet_sdk::compute_budget::ComputeBudgetInstruction;
+use jupnet_sdk::instruction::{AccountMeta, Instruction};
+use jupnet_sdk::pubkey::Pubkey;
+use jupnet_sdk::signature::Keypair;
+use jupnet_sdk::signature::Signer;
+use jupnet_sdk::signer::EncodableKey;
+use jupnet_sdk::transaction::Transaction;
 use regex::{Regex, RegexBuilder};
 use reqwest::blocking::multipart::{Form, Part};
 use reqwest::blocking::Client;
@@ -24,19 +37,6 @@ use rust_template::{ProgramTemplate, TestTemplate};
 use semver::{Version, VersionReq};
 use serde::Deserialize;
 use serde_json::{json, Map, Value as JsonValue};
-use solana_client::rpc_client::RpcClient;
-use solana_sdk::account_utils::StateMut;
-use solana_sdk::bpf_loader;
-use solana_sdk::bpf_loader_deprecated;
-use solana_sdk::bpf_loader_upgradeable::{self, UpgradeableLoaderState};
-use solana_sdk::commitment_config::CommitmentConfig;
-use solana_sdk::compute_budget::ComputeBudgetInstruction;
-use solana_sdk::instruction::{AccountMeta, Instruction};
-use solana_sdk::pubkey::Pubkey;
-use solana_sdk::signature::Keypair;
-use solana_sdk::signature::Signer;
-use solana_sdk::signer::EncodableKey;
-use solana_sdk::transaction::Transaction;
 use std::collections::BTreeMap;
 use std::collections::HashMap;
 use std::collections::HashSet;
@@ -533,7 +533,7 @@ pub enum ClusterCommand {
 }
 
 fn get_keypair(path: &str) -> Result<Keypair> {
-    solana_sdk::signature::read_keypair_file(path)
+    jupnet_sdk::signature::read_keypair_file(path)
         .map_err(|_| anyhow!("Unable to read keypair file ({path})"))
 }
 
@@ -3690,7 +3690,7 @@ fn start_test_validator(
         .test_validator
         .as_ref()
         .and_then(|test| test.validator.as_ref().map(|v| v.rpc_port))
-        .unwrap_or(solana_sdk::rpc_port::DEFAULT_RPC_PORT);
+        .unwrap_or(jupnet_sdk::rpc_port::DEFAULT_RPC_PORT);
     if !portpicker::is_free(rpc_port) {
         return Err(anyhow!(
             "Your configured rpc port: {rpc_port} is already in use"
@@ -3700,7 +3700,7 @@ fn start_test_validator(
         .test_validator
         .as_ref()
         .and_then(|test| test.validator.as_ref().and_then(|v| v.faucet_port))
-        .unwrap_or(solana_faucet::faucet::FAUCET_PORT);
+        .unwrap_or(jupnet_faucet::faucet::FAUCET_PORT);
     if !portpicker::is_free(faucet_port) {
         return Err(anyhow!(
             "Your configured faucet port: {faucet_port} is already in use"
@@ -3994,7 +3994,7 @@ fn create_idl_account(
             AccountMeta::new_readonly(keypair.pubkey(), true),
             AccountMeta::new(idl_address, false),
             AccountMeta::new_readonly(program_signer, false),
-            AccountMeta::new_readonly(solana_sdk::system_program::ID, false),
+            AccountMeta::new_readonly(jupnet_sdk::system_program::ID, false),
             AccountMeta::new_readonly(*program_id, false),
         ];
         instructions.push(Instruction {
@@ -4010,7 +4010,7 @@ fn create_idl_account(
                 accounts: vec![
                     AccountMeta::new(idl_address, false),
                     AccountMeta::new_readonly(keypair.pubkey(), true),
-                    AccountMeta::new_readonly(solana_sdk::system_program::ID, false),
+                    AccountMeta::new_readonly(jupnet_sdk::system_program::ID, false),
                 ],
                 data,
             });
@@ -4071,7 +4071,7 @@ fn create_idl_buffer(
     let create_account_ix = {
         let space = IdlAccount::DISCRIMINATOR.len() + 32 + 4 + serialize_idl(idl)?.len();
         let lamports = client.get_minimum_balance_for_rent_exemption(space)?;
-        solana_sdk::system_instruction::create_account(
+        jupnet_sdk::system_instruction::create_account(
             &keypair.pubkey(),
             &buffer.pubkey(),
             lamports,

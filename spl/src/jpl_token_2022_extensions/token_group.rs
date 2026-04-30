@@ -8,7 +8,7 @@ pub fn token_group_initialize<'info>(
     update_authority: Option<Pubkey>,
     max_size: u64,
 ) -> Result<()> {
-    let ix = spl_token_group_interface::instruction::initialize_group(
+    let ix = jpl_token_group_interface::instruction::initialize_group(
         ctx.accounts.program_id.key,
         ctx.accounts.group.key,
         ctx.accounts.mint.key,
@@ -40,7 +40,7 @@ pub struct TokenGroupInitialize<'info> {
 pub fn token_member_initialize<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, TokenMemberInitialize<'info>>,
 ) -> Result<()> {
-    let ix = spl_token_group_interface::instruction::initialize_member(
+    let ix = jpl_token_group_interface::instruction::initialize_member(
         ctx.accounts.program_id.key,
         ctx.accounts.member.key,
         ctx.accounts.member_mint.key,

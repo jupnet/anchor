@@ -5,14 +5,14 @@ use anyhow::{anyhow, bail, Context, Error, Result};
 use clap::{Parser, ValueEnum};
 use dirs::home_dir;
 use heck::ToSnakeCase;
+use jupnet_cli_config::{Config as SolanaConfig, CONFIG_FILE};
+use jupnet_sdk::clock::Slot;
+use jupnet_sdk::pubkey::Pubkey;
+use jupnet_sdk::signature::{Keypair, Signer};
 use reqwest::Url;
 use serde::de::{self, MapAccess, Visitor};
 use serde::ser::SerializeMap;
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
-use solana_cli_config::{Config as SolanaConfig, CONFIG_FILE};
-use solana_sdk::clock::Slot;
-use solana_sdk::pubkey::Pubkey;
-use solana_sdk::signature::{Keypair, Signer};
 use solang_parser::pt::{ContractTy, SourceUnitPart};
 use std::collections::{BTreeMap, HashMap};
 use std::convert::TryFrom;
@@ -1175,7 +1175,7 @@ impl From<_Validator> for Validator {
             limit_ledger_size: _validator.limit_ledger_size,
             rpc_port: _validator
                 .rpc_port
-                .unwrap_or(solana_sdk::rpc_port::DEFAULT_RPC_PORT),
+                .unwrap_or(jupnet_sdk::rpc_port::DEFAULT_RPC_PORT),
             slots_per_epoch: _validator.slots_per_epoch,
             ticks_per_slot: _validator.ticks_per_slot,
             warp_slot: _validator.warp_slot,

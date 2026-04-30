@@ -5,15 +5,16 @@ use anchor_lang::Result;
 use anchor_lang::{context::CpiContext, Accounts};
 use std::ops::Deref;
 
-pub use spl_token;
-pub use spl_token::ID;
+pub use jpl_token;
+pub use jpl_token as spl_token;
+pub use jpl_token::ID;
 
 pub fn transfer<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, Transfer<'info>>,
     amount: u64,
 ) -> Result<()> {
-    let ix = spl_token::instruction::transfer(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::transfer(
+        &jpl_token::ID,
         ctx.accounts.from.key,
         ctx.accounts.to.key,
         ctx.accounts.authority.key,
@@ -33,8 +34,8 @@ pub fn transfer_checked<'info>(
     amount: u64,
     decimals: u8,
 ) -> Result<()> {
-    let ix = spl_token::instruction::transfer_checked(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::transfer_checked(
+        &jpl_token::ID,
         ctx.accounts.from.key,
         ctx.accounts.mint.key,
         ctx.accounts.to.key,
@@ -60,8 +61,8 @@ pub fn mint_to<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, MintTo<'info>>,
     amount: u64,
 ) -> Result<()> {
-    let ix = spl_token::instruction::mint_to(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::mint_to(
+        &jpl_token::ID,
         ctx.accounts.mint.key,
         ctx.accounts.to.key,
         ctx.accounts.authority.key,
@@ -77,8 +78,8 @@ pub fn mint_to<'info>(
 }
 
 pub fn burn<'info>(ctx: CpiContext<'_, '_, '_, 'info, Burn<'info>>, amount: u64) -> Result<()> {
-    let ix = spl_token::instruction::burn(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::burn(
+        &jpl_token::ID,
         ctx.accounts.from.key,
         ctx.accounts.mint.key,
         ctx.accounts.authority.key,
@@ -97,8 +98,8 @@ pub fn approve<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, Approve<'info>>,
     amount: u64,
 ) -> Result<()> {
-    let ix = spl_token::instruction::approve(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::approve(
+        &jpl_token::ID,
         ctx.accounts.to.key,
         ctx.accounts.delegate.key,
         ctx.accounts.authority.key,
@@ -122,8 +123,8 @@ pub fn approve_checked<'info>(
     amount: u64,
     decimals: u8,
 ) -> Result<()> {
-    let ix = spl_token::instruction::approve_checked(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::approve_checked(
+        &jpl_token::ID,
         ctx.accounts.to.key,
         ctx.accounts.mint.key,
         ctx.accounts.delegate.key,
@@ -146,8 +147,8 @@ pub fn approve_checked<'info>(
 }
 
 pub fn revoke<'info>(ctx: CpiContext<'_, '_, '_, 'info, Revoke<'info>>) -> Result<()> {
-    let ix = spl_token::instruction::revoke(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::revoke(
+        &jpl_token::ID,
         ctx.accounts.source.key,
         ctx.accounts.authority.key,
         &[],
@@ -163,8 +164,8 @@ pub fn revoke<'info>(ctx: CpiContext<'_, '_, '_, 'info, Revoke<'info>>) -> Resul
 pub fn initialize_account<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, InitializeAccount<'info>>,
 ) -> Result<()> {
-    let ix = spl_token::instruction::initialize_account(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::initialize_account(
+        &jpl_token::ID,
         ctx.accounts.account.key,
         ctx.accounts.mint.key,
         ctx.accounts.authority.key,
@@ -185,8 +186,8 @@ pub fn initialize_account<'info>(
 pub fn initialize_account3<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, InitializeAccount3<'info>>,
 ) -> Result<()> {
-    let ix = spl_token::instruction::initialize_account3(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::initialize_account3(
+        &jpl_token::ID,
         ctx.accounts.account.key,
         ctx.accounts.mint.key,
         ctx.accounts.authority.key,
@@ -200,8 +201,8 @@ pub fn initialize_account3<'info>(
 }
 
 pub fn close_account<'info>(ctx: CpiContext<'_, '_, '_, 'info, CloseAccount<'info>>) -> Result<()> {
-    let ix = spl_token::instruction::close_account(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::close_account(
+        &jpl_token::ID,
         ctx.accounts.account.key,
         ctx.accounts.destination.key,
         ctx.accounts.authority.key,
@@ -222,8 +223,8 @@ pub fn close_account<'info>(ctx: CpiContext<'_, '_, '_, 'info, CloseAccount<'inf
 pub fn freeze_account<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, FreezeAccount<'info>>,
 ) -> Result<()> {
-    let ix = spl_token::instruction::freeze_account(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::freeze_account(
+        &jpl_token::ID,
         ctx.accounts.account.key,
         ctx.accounts.mint.key,
         ctx.accounts.authority.key,
@@ -242,8 +243,8 @@ pub fn freeze_account<'info>(
 }
 
 pub fn thaw_account<'info>(ctx: CpiContext<'_, '_, '_, 'info, ThawAccount<'info>>) -> Result<()> {
-    let ix = spl_token::instruction::thaw_account(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::thaw_account(
+        &jpl_token::ID,
         ctx.accounts.account.key,
         ctx.accounts.mint.key,
         ctx.accounts.authority.key,
@@ -267,8 +268,8 @@ pub fn initialize_mint<'info>(
     authority: &Pubkey,
     freeze_authority: Option<&Pubkey>,
 ) -> Result<()> {
-    let ix = spl_token::instruction::initialize_mint(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::initialize_mint(
+        &jpl_token::ID,
         ctx.accounts.mint.key,
         authority,
         freeze_authority,
@@ -288,8 +289,8 @@ pub fn initialize_mint2<'info>(
     authority: &Pubkey,
     freeze_authority: Option<&Pubkey>,
 ) -> Result<()> {
-    let ix = spl_token::instruction::initialize_mint2(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::initialize_mint2(
+        &jpl_token::ID,
         ctx.accounts.mint.key,
         authority,
         freeze_authority,
@@ -301,7 +302,7 @@ pub fn initialize_mint2<'info>(
 
 pub fn set_authority<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, SetAuthority<'info>>,
-    authority_type: spl_token::instruction::AuthorityType,
+    authority_type: jpl_token::instruction::AuthorityType,
     new_authority: Option<Pubkey>,
 ) -> Result<()> {
     let mut spl_new_authority: Option<&Pubkey> = None;
@@ -309,8 +310,8 @@ pub fn set_authority<'info>(
         spl_new_authority = new_authority.as_ref()
     }
 
-    let ix = spl_token::instruction::set_authority(
-        &spl_token::ID,
+    let ix = jpl_token::instruction::set_authority(
+        &jpl_token::ID,
         ctx.accounts.account_or_mint.key,
         spl_new_authority,
         authority_type,
@@ -326,7 +327,7 @@ pub fn set_authority<'info>(
 }
 
 pub fn sync_native<'info>(ctx: CpiContext<'_, '_, '_, 'info, SyncNative<'info>>) -> Result<()> {
-    let ix = spl_token::instruction::sync_native(&spl_token::ID, ctx.accounts.account.key)?;
+    let ix = jpl_token::instruction::sync_native(&jpl_token::ID, ctx.accounts.account.key)?;
     anchor_lang::solana_program::program::invoke_signed(
         &ix,
         &[ctx.accounts.account],
@@ -444,15 +445,15 @@ pub struct SyncNative<'info> {
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Copy)]
-pub struct TokenAccount(spl_token::state::Account);
+pub struct TokenAccount(jpl_token::state::Account);
 
 impl TokenAccount {
-    pub const LEN: usize = spl_token::state::Account::LEN;
+    pub const LEN: usize = jpl_token::state::Account::LEN;
 }
 
 impl anchor_lang::AccountDeserialize for TokenAccount {
     fn try_deserialize_unchecked(buf: &mut &[u8]) -> anchor_lang::Result<Self> {
-        spl_token::state::Account::unpack(buf)
+        jpl_token::state::Account::unpack(buf)
             .map(TokenAccount)
             .map_err(Into::into)
     }
@@ -467,7 +468,7 @@ impl anchor_lang::Owner for TokenAccount {
 }
 
 impl Deref for TokenAccount {
-    type Target = spl_token::state::Account;
+    type Target = jpl_token::state::Account;
 
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -475,15 +476,15 @@ impl Deref for TokenAccount {
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Copy)]
-pub struct Mint(spl_token::state::Mint);
+pub struct Mint(jpl_token::state::Mint);
 
 impl Mint {
-    pub const LEN: usize = spl_token::state::Mint::LEN;
+    pub const LEN: usize = jpl_token::state::Mint::LEN;
 }
 
 impl anchor_lang::AccountDeserialize for Mint {
     fn try_deserialize_unchecked(buf: &mut &[u8]) -> anchor_lang::Result<Self> {
-        spl_token::state::Mint::unpack(buf)
+        jpl_token::state::Mint::unpack(buf)
             .map(Mint)
             .map_err(Into::into)
     }
@@ -498,7 +499,7 @@ impl anchor_lang::Owner for Mint {
 }
 
 impl Deref for Mint {
-    type Target = spl_token::state::Mint;
+    type Target = jpl_token::state::Mint;
 
     fn deref(&self) -> &Self::Target {
         &self.0

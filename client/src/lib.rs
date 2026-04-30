@@ -10,7 +10,7 @@
 //! use std::rc::Rc;
 //!
 //! use anchor_client::{
-//!     solana_sdk::{
+//!     jupnet_sdk::{
 //!         signature::{read_keypair_file, Keypair},
 //!         signer::Signer,
 //!         system_program,
@@ -67,31 +67,31 @@
 //! This feature allows passing in a custom RPC client when creating program instances, which is
 //! useful for mocking RPC responses, e.g. via [`RpcClient::new_mock`].
 //!
-//! [`RpcClient::new_mock`]: https://docs.rs/solana-client/2.1.0/solana_client/rpc_client/struct.RpcClient.html#method.new_mock
+//! [`RpcClient::new_mock`]: https://docs.rs/solana-client/2.1.0/jupnet_client/rpc_client/struct.RpcClient.html#method.new_mock
 
 use anchor_lang::solana_program::program_error::ProgramError;
 use anchor_lang::solana_program::pubkey::Pubkey;
 use anchor_lang::{AccountDeserialize, Discriminator, InstructionData, ToAccountMetas};
 use futures::{Future, StreamExt};
-use regex::Regex;
-use solana_account_decoder::UiAccountEncoding;
-use solana_client::nonblocking::rpc_client::RpcClient as AsyncRpcClient;
-use solana_client::rpc_config::{
+use jupnet_account_decoder::UiAccountEncoding;
+use jupnet_client::nonblocking::rpc_client::RpcClient as AsyncRpcClient;
+use jupnet_client::rpc_config::{
     RpcAccountInfoConfig, RpcProgramAccountsConfig, RpcSendTransactionConfig,
     RpcTransactionLogsConfig, RpcTransactionLogsFilter,
 };
-use solana_client::rpc_filter::{Memcmp, RpcFilterType};
-use solana_client::{
+use jupnet_client::rpc_filter::{Memcmp, RpcFilterType};
+use jupnet_client::{
     client_error::ClientError as SolanaClientError,
     nonblocking::pubsub_client::{PubsubClient, PubsubClientError},
     rpc_response::{Response as RpcResponse, RpcLogsResponse},
 };
-use solana_sdk::account::Account;
-use solana_sdk::commitment_config::CommitmentConfig;
-use solana_sdk::hash::Hash;
-use solana_sdk::instruction::{AccountMeta, Instruction};
-use solana_sdk::signature::{Signature, Signer};
-use solana_sdk::transaction::Transaction;
+use jupnet_sdk::account::Account;
+use jupnet_sdk::commitment_config::CommitmentConfig;
+use jupnet_sdk::hash::Hash;
+use jupnet_sdk::instruction::{AccountMeta, Instruction};
+use jupnet_sdk::signature::{Signature, Signer};
+use jupnet_sdk::transaction::Transaction;
+use regex::Regex;
 use std::iter::Map;
 use std::marker::PhantomData;
 use std::ops::Deref;
@@ -110,11 +110,14 @@ use tokio::{
 
 pub use anchor_lang;
 pub use cluster::Cluster;
+pub use jupnet_account_decoder;
+pub use jupnet_account_decoder as solana_account_decoder;
+pub use jupnet_client;
+pub use jupnet_client as solana_client;
+pub use jupnet_sdk;
+pub use jupnet_sdk as solana_sdk;
 #[cfg(feature = "async")]
 pub use nonblocking::ThreadSafeSigner;
-pub use solana_account_decoder;
-pub use solana_client;
-pub use solana_sdk;
 
 mod cluster;
 
@@ -185,18 +188,18 @@ impl Signer for DynSigner {
         self.0.pubkey()
     }
 
-    fn try_pubkey(&self) -> Result<Pubkey, solana_sdk::signer::SignerError> {
+    fn try_pubkey(&self) -> Result<Pubkey, jupnet_sdk::signer::SignerError> {
         self.0.try_pubkey()
     }
 
-    fn sign_message(&self, message: &[u8]) -> solana_sdk::signature::TypedSignature {
+    fn sign_message(&self, message: &[u8]) -> jupnet_sdk::signature::TypedSignature {
         self.0.sign_message(message)
     }
 
     fn try_sign_message(
         &self,
         message: &[u8],
-    ) -> Result<solana_sdk::signature::TypedSignature, solana_sdk::signer::SignerError> {
+    ) -> Result<jupnet_sdk::signature::TypedSignature, jupnet_sdk::signer::SignerError> {
         self.0.try_sign_message(message)
     }
 
@@ -729,7 +732,7 @@ fn parse_logs_response<T: anchor_lang::Event + anchor_lang::AnchorDeserialize>(
 
 #[cfg(test)]
 mod tests {
-    use solana_client::rpc_response::RpcResponseContext;
+    use jupnet_client::rpc_response::RpcResponseContext;
 
     // Creating a mock struct that implements `anchor_lang::events`
     // for type inference in `test_logs`

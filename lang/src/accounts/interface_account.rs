@@ -6,10 +6,10 @@ use crate::{
     AccountDeserialize, AccountSerialize, Accounts, AccountsClose, AccountsExit, CheckOwner, Key,
     Owners, Result, ToAccountInfos, ToAccountMetas,
 };
-use solana_program::account_info::AccountInfo;
-use solana_program::instruction::AccountMeta;
-use solana_program::pubkey::Pubkey;
-use solana_program::system_program;
+use jupnet_program::account_info::AccountInfo;
+use jupnet_program::instruction::AccountMeta;
+use jupnet_program::pubkey::Pubkey;
+use jupnet_program::system_program;
 use std::collections::BTreeSet;
 use std::fmt;
 use std::ops::{Deref, DerefMut};
@@ -94,13 +94,13 @@ use std::ops::{Deref, DerefMut};
 /// The mint wrapper type that Anchor provides out of the box for the token program ([source](https://github.com/coral-xyz/anchor/blob/master/spl/src/token.rs))
 /// ```ignore
 /// #[derive(Clone)]
-/// pub struct Mint(spl_token::state::Mint);
+/// pub struct Mint(jpl_token::state::Mint);
 ///
 /// // This is necessary so we can use "anchor_spl::token::Mint::LEN"
 /// // because rust does not resolve "anchor_spl::token::Mint::LEN" to
-/// // "spl_token::state::Mint::LEN" automatically
+/// // "jpl_token::state::Mint::LEN" automatically
 /// impl Mint {
-///     pub const LEN: usize = spl_token::state::Mint::LEN;
+///     pub const LEN: usize = jpl_token::state::Mint::LEN;
 /// }
 ///
 /// // You don't have to implement the "try_deserialize" function
@@ -109,7 +109,7 @@ use std::ops::{Deref, DerefMut};
 /// // because non-anchor accounts don't have a discriminator to check
 /// impl anchor_lang::AccountDeserialize for Mint {
 ///     fn try_deserialize_unchecked(buf: &mut &[u8]) -> Result<Self> {
-///         spl_token::state::Mint::unpack(buf).map(Mint)
+///         jpl_token::state::Mint::unpack(buf).map(Mint)
 ///     }
 /// }
 /// // AccountSerialize defaults to a no-op which is what we want here
@@ -119,14 +119,14 @@ use std::ops::{Deref, DerefMut};
 ///
 /// impl anchor_lang::Owner for Mint {
 ///     fn owner() -> Pubkey {
-///         // pub use spl_token::ID is used at the top of the file
+///         // pub use jpl_token::ID is used at the top of the file
 ///         ID
 ///     }
 /// }
 ///
 /// // Implement the "std::ops::Deref" trait for better user experience
 /// impl Deref for Mint {
-///     type Target = spl_token::state::Mint;
+///     type Target = jpl_token::state::Mint;
 ///
 ///     fn deref(&self) -> &Self::Target {
 ///         &self.0

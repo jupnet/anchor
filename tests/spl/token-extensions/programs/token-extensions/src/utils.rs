@@ -1,6 +1,6 @@
 use anchor_lang::{
     prelude::Result,
-    solana_program::{
+    jupnet_program::{
         account_info::AccountInfo,
         instruction::{get_stack_height, TRANSACTION_LEVEL_STACK_HEIGHT},
         program::invoke,
@@ -11,12 +11,12 @@ use anchor_lang::{
     },
     Lamports,
 };
-use anchor_spl::token_interface::spl_token_2022::{
+use anchor_spl::token_interface::jpl_token_2022::{
     extension::{BaseStateWithExtensions, Extension, StateWithExtensions},
     state::Mint,
 };
-use spl_tlv_account_resolution::{account::ExtraAccountMeta, state::ExtraAccountMetaList};
-use spl_type_length_value::variable_len_pack::VariableLenPack;
+use jpl_tlv_account_resolution::{account::ExtraAccountMeta, state::ExtraAccountMetaList};
+use jpl_type_length_value::variable_len_pack::VariableLenPack;
 
 pub const APPROVE_ACCOUNT_SEED: &[u8] = b"approve-account";
 pub const META_LIST_ACCOUNT_SEED: &[u8] = b"extra-account-metas";

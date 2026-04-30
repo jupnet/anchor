@@ -8,8 +8,8 @@
 use {
     anchor_lang::prelude::*,
     anchor_spl::{
-        token_2022::{
-            spl_token_2022::{
+        jpl_token_2022::{
+            jpl_token_2022::{
                 extension::{
                     transfer_hook::TransferHookAccount, BaseStateWithExtensions,
                     StateWithExtensions,
@@ -20,9 +20,9 @@ use {
         },
         token_interface::{Mint, TokenAccount},
     },
-    spl_discriminator::SplDiscriminate,
-    spl_tlv_account_resolution::{account::ExtraAccountMeta, state::ExtraAccountMetaList},
-    spl_transfer_hook_interface::{
+    jpl_discriminator::JplDiscriminate,
+    jpl_tlv_account_resolution::{account::ExtraAccountMeta, state::ExtraAccountMetaList},
+    jpl_transfer_hook_interface::{
         error::TransferHookError,
         instruction::{
             ExecuteInstruction, InitializeExtraAccountMetaListInstruction, TransferHookInstruction,
@@ -48,7 +48,7 @@ fn check_token_account_is_transferring(account_data: &[u8]) -> Result<()> {
 pub mod transfer_hook {
     use super::*;
 
-    #[instruction(discriminator = InitializeExtraAccountMetaListInstruction::SPL_DISCRIMINATOR_SLICE)]
+    #[instruction(discriminator = InitializeExtraAccountMetaListInstruction::JPL_DISCRIMINATOR_SLICE)]
     pub fn initialize(ctx: Context<Initialize>, metas: Vec<AnchorExtraAccountMeta>) -> Result<()> {
         let extra_metas_account = &ctx.accounts.extra_metas_account;
         let mint = &ctx.accounts.mint;
@@ -71,7 +71,7 @@ pub mod transfer_hook {
         Ok(())
     }
 
-    #[instruction(discriminator = ExecuteInstruction::SPL_DISCRIMINATOR_SLICE)]
+    #[instruction(discriminator = ExecuteInstruction::JPL_DISCRIMINATOR_SLICE)]
     pub fn execute(ctx: Context<Execute>, amount: u64) -> Result<()> {
         let source_account = &ctx.accounts.source_account;
         let destination_account = &ctx.accounts.destination_account;
@@ -84,7 +84,10 @@ pub mod transfer_hook {
         let data = ctx.accounts.extra_metas_account.try_borrow_data()?;
         ExtraAccountMetaList::check_account_infos::<ExecuteInstruction>(
             &ctx.accounts.to_account_infos(),
-            &TransferHookInstruction::Execute { amount }.pack(),
+            &TransferHookInstruction::Execute {
+                amount: amount.into(),
+            }
+            .pack(),
             &ctx.program_id,
             &data,
         )?;

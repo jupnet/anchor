@@ -32,5 +32,7 @@ pub use token_metadata::*;
 pub use transfer_fee::*;
 pub use transfer_hook::*;
 
-pub use spl_pod;
-pub use spl_token_metadata_interface;
+pub use jpl_pod;
+pub use jpl_pod as spl_pod;
+pub use jpl_token_metadata_interface;
+pub use jpl_token_metadata_interface as spl_token_metadata_interface;

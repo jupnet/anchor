@@ -3,7 +3,7 @@
 use {
     anchor_client::{
         anchor_lang::Discriminator,
-        solana_sdk::{
+        jupnet_sdk::{
             account::Account,
             commitment_config::CommitmentConfig,
             pubkey::Pubkey,
@@ -12,7 +12,7 @@ use {
         },
         Client, Cluster,
     },
-    solana_program_test::{tokio, ProgramTest},
+    jupnet_program_test::{tokio, ProgramTest},
     std::rc::Rc,
 };
 

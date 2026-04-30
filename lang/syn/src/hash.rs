@@ -1,4 +1,4 @@
-// Utility hashing module copied from `solana_program::program::hash`, since we
+// Utility hashing module copied from `jupnet_program::program::hash`, since we
 // can't import solana_program for compile time hashing for some reason.
 
 use serde::{Deserialize, Serialize};

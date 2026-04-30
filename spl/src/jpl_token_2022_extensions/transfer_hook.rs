@@ -8,7 +8,7 @@ pub fn transfer_hook_initialize<'info>(
     authority: Option<Pubkey>,
     transfer_hook_program_id: Option<Pubkey>,
 ) -> Result<()> {
-    let ix = spl_token_2022::extension::transfer_hook::instruction::initialize(
+    let ix = jpl_token_2022::extension::transfer_hook::instruction::initialize(
         ctx.accounts.token_program_id.key,
         ctx.accounts.mint.key,
         authority,
@@ -32,7 +32,7 @@ pub fn transfer_hook_update<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, TransferHookUpdate<'info>>,
     transfer_hook_program_id: Option<Pubkey>,
 ) -> Result<()> {
-    let ix = spl_token_2022::extension::transfer_hook::instruction::update(
+    let ix = jpl_token_2022::extension::transfer_hook::instruction::update(
         ctx.accounts.token_program_id.key,
         ctx.accounts.mint.key,
         ctx.accounts.authority.key,

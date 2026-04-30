@@ -4,9 +4,9 @@
 
 use crate::error::ErrorCode;
 use crate::{Accounts, AccountsExit, Key, Result, ToAccountInfos, ToAccountMetas};
-use solana_program::account_info::AccountInfo;
-use solana_program::instruction::AccountMeta;
-use solana_program::pubkey::Pubkey;
+use jupnet_program::account_info::AccountInfo;
+use jupnet_program::instruction::AccountMeta;
+use jupnet_program::pubkey::Pubkey;
 use std::collections::BTreeSet;
 
 impl<'info, B> Accounts<'info, B> for AccountInfo<'info> {

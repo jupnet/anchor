@@ -49,7 +49,7 @@ fn parse_interface_instruction(path: &Path) -> [u8; 8] {
         );
     }
     let interface = path.segments[0].ident.to_string();
-    if interface == "spl_transfer_hook_interface" {
+    if interface == "jpl_transfer_hook_interface" || interface == "spl_transfer_hook_interface" {
         let instruction = path.segments[1].ident.to_string();
         if instruction == "initialize_extra_account_meta_list" {
             return [43, 34, 13, 49, 167, 88, 235, 235]; // `InitializeExtraAccountMetaList`

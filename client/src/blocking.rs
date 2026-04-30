@@ -4,12 +4,12 @@ use crate::{
 };
 use anchor_lang::{prelude::Pubkey, AccountDeserialize, Discriminator};
 #[cfg(not(feature = "mock"))]
-use solana_client::rpc_client::RpcClient;
-use solana_client::{
+use jupnet_client::rpc_client::RpcClient;
+use jupnet_client::{
     nonblocking::rpc_client::RpcClient as AsyncRpcClient, rpc_config::RpcSendTransactionConfig,
     rpc_filter::RpcFilterType,
 };
-use solana_sdk::{
+use jupnet_sdk::{
     commitment_config::CommitmentConfig, signature::Signature, signer::Signer,
     transaction::Transaction,
 };

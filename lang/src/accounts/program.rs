@@ -4,10 +4,10 @@ use crate::error::{Error, ErrorCode};
 use crate::{
     AccountDeserialize, Accounts, AccountsExit, Id, Key, Result, ToAccountInfos, ToAccountMetas,
 };
-use solana_program::account_info::AccountInfo;
-use solana_program::bpf_loader_upgradeable::{self, UpgradeableLoaderState};
-use solana_program::instruction::AccountMeta;
-use solana_program::pubkey::Pubkey;
+use jupnet_program::account_info::AccountInfo;
+use jupnet_program::bpf_loader_upgradeable::{self, UpgradeableLoaderState};
+use jupnet_program::instruction::AccountMeta;
+use jupnet_program::pubkey::Pubkey;
 use std::collections::BTreeSet;
 use std::fmt;
 use std::marker::PhantomData;

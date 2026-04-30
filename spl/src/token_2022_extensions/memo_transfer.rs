@@ -6,7 +6,7 @@ use anchor_lang::{context::CpiContext, Accounts};
 pub fn memo_transfer_initialize<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, MemoTransfer<'info>>,
 ) -> Result<()> {
-    let ix = spl_token_2022::extension::memo_transfer::instruction::enable_required_transfer_memos(
+    let ix = jpl_token_2022::extension::memo_transfer::instruction::enable_required_transfer_memos(
         ctx.accounts.token_program_id.key,
         ctx.accounts.account.key,
         ctx.accounts.owner.key,
@@ -28,7 +28,7 @@ pub fn memo_transfer_disable<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, MemoTransfer<'info>>,
 ) -> Result<()> {
     let ix =
-        spl_token_2022::extension::memo_transfer::instruction::disable_required_transfer_memos(
+        jpl_token_2022::extension::memo_transfer::instruction::disable_required_transfer_memos(
             ctx.accounts.token_program_id.key,
             ctx.accounts.account.key,
             ctx.accounts.owner.key,

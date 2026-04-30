@@ -2,11 +2,12 @@ use anchor_lang::solana_program::pubkey::Pubkey;
 use anchor_lang::Result;
 use anchor_lang::{context::CpiContext, Accounts};
 
-pub use spl_memo;
-pub use spl_memo::ID;
+pub use jpl_memo;
+pub use jpl_memo as spl_memo;
+pub use jpl_memo::ID;
 
 pub fn build_memo<'info>(ctx: CpiContext<'_, '_, '_, 'info, BuildMemo>, memo: &[u8]) -> Result<()> {
-    let ix = spl_memo::build_memo(
+    let ix = jpl_memo::build_memo(
         memo,
         &ctx.remaining_accounts
             .iter()

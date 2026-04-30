@@ -10,7 +10,7 @@ pub fn transfer_fee_initialize<'info>(
     transfer_fee_basis_points: u16,
     maximum_fee: u64,
 ) -> Result<()> {
-    let ix = spl_token_2022::extension::transfer_fee::instruction::initialize_transfer_fee_config(
+    let ix = jpl_token_2022::extension::transfer_fee::instruction::initialize_transfer_fee_config(
         ctx.accounts.token_program_id.key,
         ctx.accounts.mint.key,
         transfer_fee_config_authority,
@@ -37,7 +37,7 @@ pub fn transfer_fee_set<'info>(
     transfer_fee_basis_points: u16,
     maximum_fee: u64,
 ) -> Result<()> {
-    let ix = spl_token_2022::extension::transfer_fee::instruction::set_transfer_fee(
+    let ix = jpl_token_2022::extension::transfer_fee::instruction::set_transfer_fee(
         ctx.accounts.token_program_id.key,
         ctx.accounts.mint.key,
         ctx.accounts.authority.key,
@@ -70,7 +70,7 @@ pub fn transfer_checked_with_fee<'info>(
     decimals: u8,
     fee: u64,
 ) -> Result<()> {
-    let ix = spl_token_2022::extension::transfer_fee::instruction::transfer_checked_with_fee(
+    let ix = jpl_token_2022::extension::transfer_fee::instruction::transfer_checked_with_fee(
         ctx.accounts.token_program_id.key,
         ctx.accounts.source.key,
         ctx.accounts.mint.key,
@@ -108,7 +108,7 @@ pub fn harvest_withheld_tokens_to_mint<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, HarvestWithheldTokensToMint<'info>>,
     sources: Vec<AccountInfo<'info>>,
 ) -> Result<()> {
-    let ix = spl_token_2022::extension::transfer_fee::instruction::harvest_withheld_tokens_to_mint(
+    let ix = jpl_token_2022::extension::transfer_fee::instruction::harvest_withheld_tokens_to_mint(
         ctx.accounts.token_program_id.key,
         ctx.accounts.mint.key,
         sources.iter().map(|a| a.key).collect::<Vec<_>>().as_slice(),
@@ -131,7 +131,7 @@ pub fn withdraw_withheld_tokens_from_mint<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, WithdrawWithheldTokensFromMint<'info>>,
 ) -> Result<()> {
     let ix =
-        spl_token_2022::extension::transfer_fee::instruction::withdraw_withheld_tokens_from_mint(
+        jpl_token_2022::extension::transfer_fee::instruction::withdraw_withheld_tokens_from_mint(
             ctx.accounts.token_program_id.key,
             ctx.accounts.mint.key,
             ctx.accounts.destination.key,
@@ -163,7 +163,7 @@ pub fn withdraw_withheld_tokens_from_accounts<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, WithdrawWithheldTokensFromAccounts<'info>>,
     sources: Vec<AccountInfo<'info>>,
 ) -> Result<()> {
-    let ix = spl_token_2022::extension::transfer_fee::instruction::withdraw_withheld_tokens_from_accounts(
+    let ix = jpl_token_2022::extension::transfer_fee::instruction::withdraw_withheld_tokens_from_accounts(
         ctx.accounts.token_program_id.key,
         ctx.accounts.mint.key,
         ctx.accounts.destination.key,

@@ -7,7 +7,7 @@ pub fn permanent_delegate_initialize<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, PermanentDelegateInitialize<'info>>,
     permanent_delegate: &Pubkey,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::initialize_permanent_delegate(
+    let ix = jpl_token_2022::instruction::initialize_permanent_delegate(
         ctx.accounts.token_program_id.key,
         ctx.accounts.mint.key,
         permanent_delegate,

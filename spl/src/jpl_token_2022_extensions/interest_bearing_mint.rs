@@ -8,7 +8,7 @@ pub fn interest_bearing_mint_initialize<'info>(
     rate_authority: Option<Pubkey>,
     rate: i16,
 ) -> Result<()> {
-    let ix = spl_token_2022::extension::interest_bearing_mint::instruction::initialize(
+    let ix = jpl_token_2022::extension::interest_bearing_mint::instruction::initialize(
         ctx.accounts.token_program_id.key,
         ctx.accounts.mint.key,
         rate_authority,
@@ -32,7 +32,7 @@ pub fn interest_bearing_mint_update_rate<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, InterestBearingMintUpdateRate<'info>>,
     rate: i16,
 ) -> Result<()> {
-    let ix = spl_token_2022::extension::interest_bearing_mint::instruction::update_rate(
+    let ix = jpl_token_2022::extension::interest_bearing_mint::instruction::update_rate(
         ctx.accounts.token_program_id.key,
         ctx.accounts.mint.key,
         ctx.accounts.rate_authority.key,

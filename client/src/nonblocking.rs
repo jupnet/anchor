@@ -3,9 +3,9 @@ use crate::{
     ProgramAccountsIterator, RequestBuilder,
 };
 use anchor_lang::{prelude::Pubkey, AccountDeserialize, Discriminator};
-use solana_client::nonblocking::rpc_client::RpcClient as AsyncRpcClient;
-use solana_client::{rpc_config::RpcSendTransactionConfig, rpc_filter::RpcFilterType};
-use solana_sdk::{
+use jupnet_client::nonblocking::rpc_client::RpcClient as AsyncRpcClient;
+use jupnet_client::{rpc_config::RpcSendTransactionConfig, rpc_filter::RpcFilterType};
+use jupnet_sdk::{
     commitment_config::CommitmentConfig, signature::Signature, signer::Signer,
     transaction::Transaction,
 };

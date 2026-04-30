@@ -1,4 +1,4 @@
-use anchor_client::solana_sdk::pubkey::Pubkey;
+use anchor_client::jupnet_sdk::pubkey::Pubkey;
 use anyhow::Result;
 use clap::Parser;
 

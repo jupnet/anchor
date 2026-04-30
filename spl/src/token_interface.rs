@@ -1,23 +1,24 @@
 use anchor_lang::__private::bytemuck::Pod;
 use anchor_lang::solana_program::program_pack::Pack;
 use anchor_lang::solana_program::pubkey::Pubkey;
-use spl_token_2022::extension::ExtensionType;
-use spl_token_2022::extension::{BaseStateWithExtensions, Extension, StateWithExtensions};
+use jpl_token_2022::extension::ExtensionType;
+use jpl_token_2022::extension::{BaseStateWithExtensions, Extension, StateWithExtensions};
 use std::ops::Deref;
 
-pub use spl_token;
 pub use crate::jpl_token_2022::*;
 #[cfg(feature = "token_2022_extensions")]
 pub use crate::jpl_token_2022_extensions::*;
+pub use jpl_token;
+pub use jpl_token as spl_token;
 
-static IDS: [Pubkey; 2] = [spl_token::ID, spl_token_2022::ID];
+static IDS: [Pubkey; 2] = [jpl_token::ID, jpl_token_2022::ID];
 
 #[derive(Clone, Debug, Default, PartialEq, Copy)]
-pub struct TokenAccount(spl_token_2022::state::Account);
+pub struct TokenAccount(jpl_token_2022::state::Account);
 
 impl anchor_lang::AccountDeserialize for TokenAccount {
     fn try_deserialize_unchecked(buf: &mut &[u8]) -> anchor_lang::Result<Self> {
-        spl_token_2022::extension::StateWithExtensions::<spl_token_2022::state::Account>::unpack(
+        jpl_token_2022::extension::StateWithExtensions::<jpl_token_2022::state::Account>::unpack(
             buf,
         )
         .map(|t| TokenAccount(t.base))
@@ -34,7 +35,7 @@ impl anchor_lang::Owners for TokenAccount {
 }
 
 impl Deref for TokenAccount {
-    type Target = spl_token_2022::state::Account;
+    type Target = jpl_token_2022::state::Account;
 
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -42,11 +43,11 @@ impl Deref for TokenAccount {
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Copy)]
-pub struct Mint(spl_token_2022::state::Mint);
+pub struct Mint(jpl_token_2022::state::Mint);
 
 impl anchor_lang::AccountDeserialize for Mint {
     fn try_deserialize_unchecked(buf: &mut &[u8]) -> anchor_lang::Result<Self> {
-        spl_token_2022::extension::StateWithExtensions::<spl_token_2022::state::Mint>::unpack(buf)
+        jpl_token_2022::extension::StateWithExtensions::<jpl_token_2022::state::Mint>::unpack(buf)
             .map(|t| Mint(t.base))
             .map_err(Into::into)
     }
@@ -61,7 +62,7 @@ impl anchor_lang::Owners for Mint {
 }
 
 impl Deref for Mint {
-    type Target = spl_token_2022::state::Mint;
+    type Target = jpl_token_2022::state::Mint;
 
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -82,10 +83,10 @@ pub type ExtensionsVec = Vec<ExtensionType>;
 pub fn find_mint_account_size(extensions: Option<&ExtensionsVec>) -> anchor_lang::Result<usize> {
     if let Some(extensions) = extensions {
         Ok(ExtensionType::try_calculate_account_len::<
-            spl_token_2022::state::Mint,
+            jpl_token_2022::state::Mint,
         >(extensions)?)
     } else {
-        Ok(spl_token_2022::state::Mint::LEN)
+        Ok(jpl_token_2022::state::Mint::LEN)
     }
 }
 
@@ -94,7 +95,7 @@ pub fn get_mint_extension_data<T: Extension + Pod>(
 ) -> anchor_lang::Result<T> {
     let mint_data = account.data.borrow();
     let mint_with_extension =
-        StateWithExtensions::<spl_token_2022::state::Mint>::unpack(&mint_data)?;
+        StateWithExtensions::<jpl_token_2022::state::Mint>::unpack(&mint_data)?;
     let extension_data = *mint_with_extension.get_extension::<T>()?;
     Ok(extension_data)
 }

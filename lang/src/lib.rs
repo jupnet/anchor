@@ -26,10 +26,10 @@
 extern crate self as anchor_lang;
 
 use bytemuck::{Pod, Zeroable};
-use solana_program::account_info::AccountInfo;
-use solana_program::instruction::AccountMeta;
-use solana_program::program_error::ProgramError;
-use solana_program::pubkey::Pubkey;
+use jupnet_program::account_info::AccountInfo;
+use jupnet_program::instruction::AccountMeta;
+use jupnet_program::program_error::ProgramError;
+use jupnet_program::pubkey::Pubkey;
 use std::{collections::BTreeSet, fmt::Debug, io::Write};
 
 mod account_meta;
@@ -63,7 +63,8 @@ pub use anchor_derive_space::InitSpace;
 /// Borsh is the default serialization format for instructions and accounts.
 pub use borsh::de::BorshDeserialize as AnchorDeserialize;
 pub use borsh::ser::BorshSerialize as AnchorSerialize;
-pub use solana_program;
+pub use jupnet_program;
+pub use jupnet_program as solana_program;
 
 #[cfg(feature = "event-cpi")]
 pub use anchor_attribute_event::{emit_cpi, event_cpi};
@@ -408,31 +409,30 @@ pub mod prelude {
         accounts::signer::Signer, accounts::system_account::SystemAccount,
         accounts::sysvar::Sysvar, accounts::unchecked_account::UncheckedAccount, constant,
         context::Context, context::CpiContext, declare_id, declare_program, emit, err, error,
-        event, instruction, program, pubkey, require, require_eq, require_gt, require_gte,
-        require_keys_eq, require_keys_neq, require_neq,
-        solana_program::bpf_loader_upgradeable::UpgradeableLoaderState, source,
-        system_program::System, zero_copy, AccountDeserialize, AccountSerialize, Accounts,
-        AccountsClose, AccountsExit, AnchorDeserialize, AnchorSerialize, Discriminator, Id,
-        InitSpace, Key, Lamports, Owner, ProgramData, Result, Space, ToAccountInfo, ToAccountInfos,
-        ToAccountMetas,
+        event, instruction, jupnet_program::bpf_loader_upgradeable::UpgradeableLoaderState,
+        program, pubkey, require, require_eq, require_gt, require_gte, require_keys_eq,
+        require_keys_neq, require_neq, source, system_program::System, zero_copy,
+        AccountDeserialize, AccountSerialize, Accounts, AccountsClose, AccountsExit,
+        AnchorDeserialize, AnchorSerialize, Discriminator, Id, InitSpace, Key, Lamports, Owner,
+        ProgramData, Result, Space, ToAccountInfo, ToAccountInfos, ToAccountMetas,
     };
     pub use anchor_attribute_error::*;
     pub use borsh;
     pub use error::*;
-    pub use solana_program::account_info::{next_account_info, AccountInfo};
-    pub use solana_program::instruction::AccountMeta;
-    pub use solana_program::msg;
-    pub use solana_program::program_error::ProgramError;
-    pub use solana_program::pubkey::Pubkey;
-    pub use solana_program::sysvar::clock::Clock;
-    pub use solana_program::sysvar::epoch_schedule::EpochSchedule;
-    pub use solana_program::sysvar::instructions::Instructions;
-    pub use solana_program::sysvar::rent::Rent;
-    pub use solana_program::sysvar::rewards::Rewards;
-    pub use solana_program::sysvar::slot_hashes::SlotHashes;
-    pub use solana_program::sysvar::slot_history::SlotHistory;
-    pub use solana_program::sysvar::stake_history::StakeHistory;
-    pub use solana_program::sysvar::Sysvar as SolanaSysvar;
+    pub use jupnet_program::account_info::{next_account_info, AccountInfo};
+    pub use jupnet_program::instruction::AccountMeta;
+    pub use jupnet_program::msg;
+    pub use jupnet_program::program_error::ProgramError;
+    pub use jupnet_program::pubkey::Pubkey;
+    pub use jupnet_program::sysvar::clock::Clock;
+    pub use jupnet_program::sysvar::epoch_schedule::EpochSchedule;
+    pub use jupnet_program::sysvar::instructions::Instructions;
+    pub use jupnet_program::sysvar::rent::Rent;
+    pub use jupnet_program::sysvar::rewards::Rewards;
+    pub use jupnet_program::sysvar::slot_hashes::SlotHashes;
+    pub use jupnet_program::sysvar::slot_history::SlotHistory;
+    pub use jupnet_program::sysvar::stake_history::StakeHistory;
+    pub use jupnet_program::sysvar::Sysvar as SolanaSysvar;
     pub use thiserror;
 
     #[cfg(feature = "event-cpi")]
@@ -457,7 +457,7 @@ pub mod __private {
 
     pub use crate::{bpf_writer::BpfWriter, common::is_closed};
 
-    use solana_program::pubkey::Pubkey;
+    use jupnet_program::pubkey::Pubkey;
 
     // Used to calculate the maximum between two expressions.
     // It is necessary for the calculation of the enum space.

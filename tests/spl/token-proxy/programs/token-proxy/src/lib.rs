@@ -3,7 +3,7 @@
 use anchor_lang::prelude::*;
 use anchor_spl::{
     associated_token::AssociatedToken,
-    token_2022::spl_token_2022,
+    token_2022::jpl_token_2022,
     token_interface::{
         self, Burn, Mint, MintTo, SetAuthority, TokenAccount, TokenInterface, Transfer,
         TransferChecked,
@@ -259,15 +259,15 @@ impl<'a, 'b, 'c, 'info> From<&mut ProxySetAuthority<'info>>
     }
 }
 
-impl From<AuthorityType> for spl_token_2022::instruction::AuthorityType {
-    fn from(authority_ty: AuthorityType) -> spl_token_2022::instruction::AuthorityType {
+impl From<AuthorityType> for jpl_token_2022::instruction::AuthorityType {
+    fn from(authority_ty: AuthorityType) -> jpl_token_2022::instruction::AuthorityType {
         match authority_ty {
-            AuthorityType::MintTokens => spl_token_2022::instruction::AuthorityType::MintTokens,
+            AuthorityType::MintTokens => jpl_token_2022::instruction::AuthorityType::MintTokens,
             AuthorityType::FreezeAccount => {
-                spl_token_2022::instruction::AuthorityType::FreezeAccount
+                jpl_token_2022::instruction::AuthorityType::FreezeAccount
             }
-            AuthorityType::AccountOwner => spl_token_2022::instruction::AuthorityType::AccountOwner,
-            AuthorityType::CloseAccount => spl_token_2022::instruction::AuthorityType::CloseAccount,
+            AuthorityType::AccountOwner => jpl_token_2022::instruction::AuthorityType::AccountOwner,
+            AuthorityType::CloseAccount => jpl_token_2022::instruction::AuthorityType::CloseAccount,
         }
     }
 }

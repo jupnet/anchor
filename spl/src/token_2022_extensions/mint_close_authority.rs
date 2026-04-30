@@ -7,7 +7,7 @@ pub fn mint_close_authority_initialize<'info>(
     ctx: CpiContext<'_, '_, '_, 'info, MintCloseAuthorityInitialize<'info>>,
     authority: Option<&Pubkey>,
 ) -> Result<()> {
-    let ix = spl_token_2022::instruction::initialize_mint_close_authority(
+    let ix = jpl_token_2022::instruction::initialize_mint_close_authority(
         ctx.accounts.token_program_id.key,
         ctx.accounts.mint.key,
         authority,

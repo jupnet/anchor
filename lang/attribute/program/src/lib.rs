@@ -71,7 +71,7 @@ pub fn declare_program(input: proc_macro::TokenStream) -> proc_macro::TokenStrea
 /// //
 /// // This instruction is invoked by Token-2022 when a transfer occurs,
 /// // if a mint has specified this program as its transfer hook.
-/// #[interface(spl_transfer_hook_interface::execute)]
+/// #[interface(jpl_transfer_hook_interface::execute)]
 /// pub fn execute_transfer(ctx: Context<Execute>, amount: u64) -> Result<()> {
 ///     // Check that all extra accounts were provided
 ///     let data = ctx.accounts.extra_metas_account.try_borrow_data()?;

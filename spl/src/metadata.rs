@@ -69,7 +69,7 @@ pub fn burn_edition_nft<'info>(
         print_edition_account: *ctx.accounts.print_edition.key,
         print_edition_mint: *ctx.accounts.print_edition_mint.key,
         print_edition_token_account: *ctx.accounts.print_edition_token.key,
-        spl_token_program: *ctx.accounts.spl_token.key,
+        spl_token_program: *ctx.accounts.jpl_token.key,
     }
     .instruction();
     anchor_lang::solana_program::program::invoke_signed(
@@ -105,7 +105,7 @@ pub fn burn_nft<'info>(
         metadata: *ctx.accounts.metadata.key,
         mint: *ctx.accounts.mint.key,
         owner: *ctx.accounts.owner.key,
-        spl_token_program: *ctx.accounts.spl_token.key,
+        spl_token_program: *ctx.accounts.jpl_token.key,
         token_account: *ctx.accounts.token.key,
     }
     .instruction();
@@ -190,7 +190,7 @@ pub fn create_master_edition_v3<'info>(
         payer: *ctx.accounts.payer.key,
         rent: None,
         system_program: system_program::ID,
-        token_program: spl_token::ID,
+        token_program: jpl_token::ID,
         update_authority: *ctx.accounts.update_authority.key,
     }
     .instruction(
@@ -222,7 +222,7 @@ pub fn mint_new_edition_from_master_edition_via_token<'info>(
         system_program: system_program::ID,
         token_account: *ctx.accounts.token_account.key,
         token_account_owner: *ctx.accounts.token_account_owner.key,
-        token_program: spl_token::ID,
+        token_program: jpl_token::ID,
     }
     .instruction(
         mpl_token_metadata::instructions::MintNewEditionFromMasterEditionViaTokenInstructionArgs {
@@ -482,7 +482,7 @@ pub fn utilize<'info>(
     number_of_uses: u64,
 ) -> Result<()> {
     let ix = mpl_token_metadata::instructions::Utilize {
-        ata_program: spl_associated_token_account::ID,
+        ata_program: jpl_associated_token_account::ID,
         burner,
         metadata: *ctx.accounts.metadata.key,
         mint: *ctx.accounts.mint.key,
@@ -490,7 +490,7 @@ pub fn utilize<'info>(
         rent: sysvar::rent::ID,
         system_program: system_program::ID,
         token_account: *ctx.accounts.token_account.key,
-        token_program: spl_token::ID,
+        token_program: jpl_token::ID,
         use_authority: *ctx.accounts.use_authority.key,
         use_authority_record,
     }
@@ -575,7 +575,7 @@ pub struct BurnEditionNft<'info> {
     pub master_edition: AccountInfo<'info>,
     pub print_edition: AccountInfo<'info>,
     pub edition_marker: AccountInfo<'info>,
-    pub spl_token: AccountInfo<'info>,
+    pub jpl_token: AccountInfo<'info>,
 }
 
 #[derive(Accounts)]
@@ -585,7 +585,7 @@ pub struct BurnNft<'info> {
     pub mint: AccountInfo<'info>,
     pub token: AccountInfo<'info>,
     pub edition: AccountInfo<'info>,
-    pub spl_token: AccountInfo<'info>,
+    pub jpl_token: AccountInfo<'info>,
 }
 
 #[derive(Accounts)]

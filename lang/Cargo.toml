@@ -55,6 +55,6 @@ anchor-lang-idl = { path = "../idl", version = "0.1.2", optional = true }
 base64 = "0.21"
 bincode = "1"
 borsh = "0.10.3"
-bytemuck = "1"
-solana-program = { workspace = true }
+bytemuck = { version = "1", features = ["derive"] }
+jupnet-program = { workspace = true }
 thiserror = "1"
