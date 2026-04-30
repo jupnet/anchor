@@ -99,7 +99,7 @@ checksum = "683d7910e743518b0e34f1186f92494becacb047c7b6bf616c96772180fef923"
 
 [[package]]
 name = "anchor-attribute-access-control"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "anchor-syn",
  "proc-macro2",
@@ -109,7 +109,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-attribute-account"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "anchor-syn",
  "bs58",
@@ -120,7 +120,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-attribute-constant"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "anchor-syn",
  "quote",
@@ -129,7 +129,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-attribute-error"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "anchor-syn",
  "quote",
@@ -138,7 +138,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-attribute-event"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "anchor-syn",
  "proc-macro2",
@@ -148,7 +148,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-attribute-program"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "anchor-lang-idl",
  "anchor-syn",
@@ -163,7 +163,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-cli"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "anchor-client",
  "anchor-lang",
@@ -199,7 +199,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-client"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "anchor-lang",
  "anyhow",
@@ -216,7 +216,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-derive-accounts"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "anchor-syn",
  "quote",
@@ -225,7 +225,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-derive-serde"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "anchor-syn",
  "borsh-derive-internal",
@@ -236,7 +236,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-derive-space"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -245,7 +245,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-lang"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "anchor-attribute-access-control",
  "anchor-attribute-account",
@@ -288,7 +288,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-spl"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "anchor-lang",
  "borsh 0.10.4",
@@ -306,7 +306,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-syn"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "anyhow",
  "bs58",
@@ -851,7 +851,7 @@ checksum = "c08606f8c3cbf4ce6ec8e28fb0014a2c086708fe954eaa885384a6165172e7e8"
 
 [[package]]
 name = "avm"
-version = "0.31.1"
+version = "0.31.2"
 dependencies = [
  "anyhow",
  "cargo_toml",
@@ -1140,9 +1140,9 @@ dependencies = [
 
 [[package]]
 name = "bytemuck_derive"
-version = "1.8.1"
+version = "1.10.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3fa76293b4f7bb636ab88fd78228235b5248b4d05cc589aed610f954af5d7c7a"
+checksum = "f9abbd1bc6865053c427f7198e6af43bfdedc55ab791faed4fbd361d789575ff"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -3093,7 +3093,7 @@ dependencies = [
 [[package]]
 name = "jpl-associated-token-account"
 version = "4.0.1"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "borsh 1.6.1",
  "jpl-associated-token-account-client",
@@ -3108,7 +3108,7 @@ dependencies = [
 [[package]]
 name = "jpl-associated-token-account-client"
 version = "1.0.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-program",
 ]
@@ -3116,7 +3116,7 @@ dependencies = [
 [[package]]
 name = "jpl-discriminator"
 version = "0.3.1"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bytemuck",
  "jpl-discriminator-derive",
@@ -3126,7 +3126,7 @@ dependencies = [
 [[package]]
 name = "jpl-discriminator-derive"
 version = "0.2.1"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jpl-discriminator-syn",
  "quote",
@@ -3136,7 +3136,7 @@ dependencies = [
 [[package]]
 name = "jpl-discriminator-syn"
 version = "0.2.1"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -3148,7 +3148,7 @@ dependencies = [
 [[package]]
 name = "jpl-math"
 version = "0.2.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "borsh 1.6.1",
  "jupnet-program",
@@ -3161,7 +3161,7 @@ dependencies = [
 [[package]]
 name = "jpl-memo"
 version = "5.0.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-program",
 ]
@@ -3169,7 +3169,7 @@ dependencies = [
 [[package]]
 name = "jpl-pod"
 version = "0.3.3"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "borsh 1.6.1",
  "bytemuck",
@@ -3183,7 +3183,7 @@ dependencies = [
 [[package]]
 name = "jpl-program-error"
 version = "0.5.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jpl-program-error-derive",
  "jupnet-program",
@@ -3195,7 +3195,7 @@ dependencies = [
 [[package]]
 name = "jpl-program-error-derive"
 version = "0.4.1"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -3206,7 +3206,7 @@ dependencies = [
 [[package]]
 name = "jpl-tlv-account-resolution"
 version = "0.7.1"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bytemuck",
  "jpl-discriminator",
@@ -3219,7 +3219,7 @@ dependencies = [
 [[package]]
 name = "jpl-token"
 version = "6.0.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "arrayref",
  "bytemuck",
@@ -3234,7 +3234,7 @@ dependencies = [
 [[package]]
 name = "jpl-token-2022"
 version = "4.0.3-jupnet.1"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "arrayref",
  "bytemuck",
@@ -3259,7 +3259,7 @@ dependencies = [
 [[package]]
 name = "jpl-token-group-interface"
 version = "0.3.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bytemuck",
  "jpl-discriminator",
@@ -3271,7 +3271,7 @@ dependencies = [
 [[package]]
 name = "jpl-token-metadata-interface"
 version = "0.4.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "borsh 1.6.1",
  "jpl-discriminator",
@@ -3284,7 +3284,7 @@ dependencies = [
 [[package]]
 name = "jpl-transfer-hook-interface"
 version = "0.7.1"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "arrayref",
  "bytemuck",
@@ -3300,7 +3300,7 @@ dependencies = [
 [[package]]
 name = "jpl-type-length-value"
 version = "0.5.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bytemuck",
  "jpl-discriminator",
@@ -3339,7 +3339,7 @@ dependencies = [
 [[package]]
 name = "jupnet-account"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bincode",
  "jupnet-instruction",
@@ -3352,7 +3352,7 @@ dependencies = [
 [[package]]
 name = "jupnet-account-decoder"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "Inflector",
  "base64 0.22.1",
@@ -3380,7 +3380,7 @@ dependencies = [
 [[package]]
 name = "jupnet-account-decoder-client-types"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "base64 0.22.1",
  "bs58",
@@ -3396,7 +3396,7 @@ dependencies = [
 [[package]]
 name = "jupnet-account-info"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bincode",
  "jupnet-program-error",
@@ -3408,7 +3408,7 @@ dependencies = [
 [[package]]
 name = "jupnet-alt-bn128-bls"
 version = "2.1.6-jupnet.1"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "ark-bn254 0.4.0",
  "ark-ec 0.4.2",
@@ -3424,7 +3424,7 @@ dependencies = [
 [[package]]
 name = "jupnet-atomic-u64"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "parking_lot",
 ]
@@ -3432,7 +3432,7 @@ dependencies = [
 [[package]]
 name = "jupnet-bincode"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bincode",
  "jupnet-instruction",
@@ -3442,7 +3442,7 @@ dependencies = [
 [[package]]
 name = "jupnet-bls-sdk"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "dashu",
  "jupnet-alt-bn128-bls",
@@ -3457,7 +3457,7 @@ dependencies = [
 [[package]]
 name = "jupnet-bn254"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "ark-bn254 0.4.0",
  "ark-ec 0.4.2",
@@ -3471,7 +3471,7 @@ dependencies = [
 [[package]]
 name = "jupnet-borsh"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "borsh 0.10.4",
  "borsh 1.6.1",
@@ -3480,7 +3480,7 @@ dependencies = [
 [[package]]
 name = "jupnet-clap-utils"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "chrono",
  "clap 2.34.0",
@@ -3498,7 +3498,7 @@ dependencies = [
 [[package]]
 name = "jupnet-cli-config"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "dirs-next",
  "jupnet-clap-utils",
@@ -3513,7 +3513,7 @@ dependencies = [
 [[package]]
 name = "jupnet-client"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "async-trait",
  "bincode",
@@ -3544,7 +3544,7 @@ dependencies = [
 [[package]]
 name = "jupnet-clock"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-sdk-macro",
  "jupnet-sysvar-id",
@@ -3555,7 +3555,7 @@ dependencies = [
 [[package]]
 name = "jupnet-compute-budget"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-sdk",
 ]
@@ -3563,7 +3563,7 @@ dependencies = [
 [[package]]
 name = "jupnet-config-program"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bincode",
  "chrono",
@@ -3578,7 +3578,7 @@ dependencies = [
 [[package]]
 name = "jupnet-connection-cache"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "async-trait",
  "bincode",
@@ -3598,7 +3598,7 @@ dependencies = [
 [[package]]
 name = "jupnet-cpi"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-account-info",
  "jupnet-define-syscall",
@@ -3611,7 +3611,7 @@ dependencies = [
 [[package]]
 name = "jupnet-cross-chain-core-primitives"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bincode",
  "hex",
@@ -3627,7 +3627,7 @@ dependencies = [
 [[package]]
 name = "jupnet-crosschain-hash"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-define-syscall",
  "jupnet-hash",
@@ -3638,7 +3638,7 @@ dependencies = [
 [[package]]
 name = "jupnet-crypto"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bytemuck",
  "dashu",
@@ -3652,7 +3652,7 @@ dependencies = [
 [[package]]
 name = "jupnet-curve25519"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bytemuck",
  "bytemuck_derive",
@@ -3664,7 +3664,7 @@ dependencies = [
 [[package]]
 name = "jupnet-decode-error"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "num-traits",
 ]
@@ -3672,12 +3672,12 @@ dependencies = [
 [[package]]
 name = "jupnet-define-syscall"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 
 [[package]]
 name = "jupnet-derivation-path"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "derivation-path",
  "qstring",
@@ -3687,7 +3687,7 @@ dependencies = [
 [[package]]
 name = "jupnet-epoch-schedule"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-sdk-macro",
  "jupnet-sysvar-id",
@@ -3698,7 +3698,7 @@ dependencies = [
 [[package]]
 name = "jupnet-faucet"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bincode",
  "byteorder",
@@ -3721,7 +3721,7 @@ dependencies = [
 [[package]]
 name = "jupnet-feature-set"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-clock",
  "jupnet-epoch-schedule",
@@ -3734,7 +3734,7 @@ dependencies = [
 [[package]]
 name = "jupnet-fee-calculator"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "log",
  "serde",
@@ -3744,7 +3744,7 @@ dependencies = [
 [[package]]
 name = "jupnet-hash"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "borsh 1.6.1",
  "bs58",
@@ -3761,7 +3761,7 @@ dependencies = [
 [[package]]
 name = "jupnet-inflation"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "serde",
  "serde_derive",
@@ -3770,7 +3770,7 @@ dependencies = [
 [[package]]
 name = "jupnet-inline-spl"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bytemuck",
  "jupnet-pubkey",
@@ -3779,7 +3779,7 @@ dependencies = [
 [[package]]
 name = "jupnet-instruction"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bincode",
  "borsh 1.6.1",
@@ -3796,7 +3796,7 @@ dependencies = [
 [[package]]
 name = "jupnet-last-restart-slot"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-sdk-macro",
  "jupnet-sysvar-id",
@@ -3807,7 +3807,7 @@ dependencies = [
 [[package]]
 name = "jupnet-log-collector"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "log",
 ]
@@ -3815,7 +3815,7 @@ dependencies = [
 [[package]]
 name = "jupnet-logger"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "env_logger",
  "lazy_static",
@@ -3825,12 +3825,12 @@ dependencies = [
 [[package]]
 name = "jupnet-measure"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 
 [[package]]
 name = "jupnet-metrics"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "crossbeam-channel",
  "env_logger",
@@ -3846,7 +3846,7 @@ dependencies = [
 [[package]]
 name = "jupnet-msg"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-define-syscall",
 ]
@@ -3854,12 +3854,12 @@ dependencies = [
 [[package]]
 name = "jupnet-native-token"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 
 [[package]]
 name = "jupnet-net-utils"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bincode",
  "crossbeam-channel",
@@ -3877,7 +3877,7 @@ dependencies = [
 [[package]]
 name = "jupnet-packet"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bincode",
  "bitflags 2.11.1",
@@ -3890,7 +3890,7 @@ dependencies = [
 [[package]]
 name = "jupnet-perf"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "ahash",
  "bincode",
@@ -3917,7 +3917,7 @@ dependencies = [
 [[package]]
 name = "jupnet-program"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "base64 0.22.1",
  "bincode",
@@ -3992,7 +3992,7 @@ dependencies = [
 [[package]]
 name = "jupnet-program-entrypoint"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-account-info",
  "jupnet-msg",
@@ -4003,7 +4003,7 @@ dependencies = [
 [[package]]
 name = "jupnet-program-error"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "borsh 1.6.1",
  "jupnet-decode-error",
@@ -4018,7 +4018,7 @@ dependencies = [
 [[package]]
 name = "jupnet-program-memory"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-define-syscall",
  "num-traits",
@@ -4027,12 +4027,12 @@ dependencies = [
 [[package]]
 name = "jupnet-program-option"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 
 [[package]]
 name = "jupnet-program-pack"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-program-error",
 ]
@@ -4040,7 +4040,7 @@ dependencies = [
 [[package]]
 name = "jupnet-program-runtime"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "base64 0.22.1",
  "bincode",
@@ -4069,7 +4069,7 @@ dependencies = [
 [[package]]
 name = "jupnet-pubkey"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "borsh 0.10.4",
  "borsh 1.6.1",
@@ -4095,7 +4095,7 @@ dependencies = [
 [[package]]
 name = "jupnet-pubsub-client"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "crossbeam-channel",
  "futures-util",
@@ -4119,7 +4119,7 @@ dependencies = [
 [[package]]
 name = "jupnet-quic-client"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "async-lock",
  "async-trait",
@@ -4144,7 +4144,7 @@ dependencies = [
 [[package]]
 name = "jupnet-rayon-threadlimit"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "lazy_static",
  "num_cpus",
@@ -4153,7 +4153,7 @@ dependencies = [
 [[package]]
 name = "jupnet-remote-wallet"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "console",
  "dialoguer",
@@ -4172,7 +4172,7 @@ dependencies = [
 [[package]]
 name = "jupnet-rent"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-sdk-macro",
  "jupnet-sysvar-id",
@@ -4183,7 +4183,7 @@ dependencies = [
 [[package]]
 name = "jupnet-rpc-client"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "async-trait",
  "base64 0.22.1",
@@ -4211,7 +4211,7 @@ dependencies = [
 [[package]]
 name = "jupnet-rpc-client-api"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "anyhow",
  "base64 0.22.1",
@@ -4234,7 +4234,7 @@ dependencies = [
 [[package]]
 name = "jupnet-rpc-client-nonce-utils"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-rpc-client",
  "jupnet-sdk",
@@ -4244,12 +4244,12 @@ dependencies = [
 [[package]]
 name = "jupnet-sanitize"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 
 [[package]]
 name = "jupnet-sdk"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "base64-url",
  "bincode",
@@ -4317,7 +4317,7 @@ dependencies = [
 [[package]]
 name = "jupnet-sdk-macro"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bs58",
  "proc-macro2",
@@ -4328,7 +4328,7 @@ dependencies = [
 [[package]]
 name = "jupnet-secp256k1-recover"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "borsh 1.6.1",
  "jupnet-define-syscall",
@@ -4339,7 +4339,7 @@ dependencies = [
 [[package]]
 name = "jupnet-serde-varint"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "serde",
 ]
@@ -4347,7 +4347,7 @@ dependencies = [
 [[package]]
 name = "jupnet-serialize-utils"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-instruction",
  "jupnet-pubkey",
@@ -4357,7 +4357,7 @@ dependencies = [
 [[package]]
 name = "jupnet-sha256-hasher"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-define-syscall",
  "jupnet-hash",
@@ -4367,7 +4367,7 @@ dependencies = [
 [[package]]
 name = "jupnet-short-vec"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "serde",
 ]
@@ -4375,7 +4375,7 @@ dependencies = [
 [[package]]
 name = "jupnet-signature"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "ark-bn254 0.5.0",
  "ark-ec 0.5.0",
@@ -4408,7 +4408,7 @@ dependencies = [
 [[package]]
 name = "jupnet-slot-hashes"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-hash",
  "jupnet-sysvar-id",
@@ -4419,7 +4419,7 @@ dependencies = [
 [[package]]
 name = "jupnet-slot-history"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bv",
  "jupnet-sysvar-id",
@@ -4430,7 +4430,7 @@ dependencies = [
 [[package]]
 name = "jupnet-stable-layout"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-instruction",
  "jupnet-pubkey",
@@ -4439,7 +4439,7 @@ dependencies = [
 [[package]]
 name = "jupnet-streamer"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "async-channel",
  "bytes",
@@ -4479,7 +4479,7 @@ dependencies = [
 [[package]]
 name = "jupnet-sysvar-id"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-pubkey",
 ]
@@ -4487,7 +4487,7 @@ dependencies = [
 [[package]]
 name = "jupnet-thin-client"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bincode",
  "jupnet-connection-cache",
@@ -4501,7 +4501,7 @@ dependencies = [
 [[package]]
 name = "jupnet-timings"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "eager",
  "enum-iterator",
@@ -4511,7 +4511,7 @@ dependencies = [
 [[package]]
 name = "jupnet-tpu-client"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "async-trait",
  "bincode",
@@ -4533,7 +4533,7 @@ dependencies = [
 [[package]]
 name = "jupnet-transaction-error"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-instruction",
  "jupnet-sanitize",
@@ -4544,7 +4544,7 @@ dependencies = [
 [[package]]
 name = "jupnet-transaction-metrics-tracker"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "base64 0.22.1",
  "bincode",
@@ -4559,7 +4559,7 @@ dependencies = [
 [[package]]
 name = "jupnet-transaction-status-client-types"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "base64 0.22.1",
  "bincode",
@@ -4576,7 +4576,7 @@ dependencies = [
 [[package]]
 name = "jupnet-type-overrides"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "lazy_static",
  "rand 0.8.5",
@@ -4585,7 +4585,7 @@ dependencies = [
 [[package]]
 name = "jupnet-udp-client"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "async-trait",
  "jupnet-connection-cache",
@@ -4599,7 +4599,7 @@ dependencies = [
 [[package]]
 name = "jupnet-version"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "jupnet-feature-set",
  "jupnet-sanitize",
@@ -4612,7 +4612,7 @@ dependencies = [
 [[package]]
 name = "jupnet-vote"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "itertools 0.12.1",
  "jupnet-sdk",
@@ -4625,7 +4625,7 @@ dependencies = [
 [[package]]
 name = "jupnet-vote-program"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "bincode",
  "jupnet-bls-sdk",
@@ -4645,7 +4645,7 @@ dependencies = [
 [[package]]
 name = "jupnet-zk-sdk"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "aes-gcm-siv",
  "base64 0.22.1",
@@ -4676,7 +4676,7 @@ dependencies = [
 [[package]]
 name = "jupnet-zk-token-sdk"
 version = "1.1.0"
-source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.3#e4d2166303c5decf142be4923494a1d17ea21871"
+source = "git+https://github.com/jupnet/jupnet-svm.git?tag=v1.1.4#e0f0c00427b3b52e7a744cef7dcff21a7df3e0c4"
 dependencies = [
  "aes-gcm-siv",
  "base64 0.22.1",
