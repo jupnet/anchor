@@ -37,7 +37,7 @@ git grep -l $old_version -- $allow_globs |
     -e "s/$old_version/$version/g"
 # Replace `solana_version` with the current version
 solana_version=$(solana --version | awk '{print $2;}')
-sed $sedi "s/solana_version.*\"/solana_version = \"$solana_version\"/g" references/anchor-toml.mdx
+sed "${sedi[@]}" "s/solana_version.*\"/solana_version = \"$solana_version\"/g" references/anchor-toml.mdx
 # Keep release notes and changelog the same
 git restore updates
 popd
