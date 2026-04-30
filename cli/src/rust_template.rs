@@ -183,7 +183,7 @@ fn cargo_toml(name: &str, with_mollusk: bool) -> String {
         r#"
 [dev-dependencies]
 mollusk-svm = { git = "https://github.com/jupnet/mollusk.git", rev = "c9e03634889b6aa60195c5eaf543f1473ccc67e9" }
-solana-program = { package = "jupnet-program", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.3" }
+solana-program = { package = "jupnet-program", git = "https://github.com/jupnet/jupnet-svm.git", tag = "v1.1.4" }
 "#
     } else {
         ""
@@ -212,7 +212,7 @@ idl-build = ["anchor-lang/idl-build"]
 [dependencies]
 anchor-lang = {{ git = "{3}", branch = "{4}" }}
 bytemuck = {{ version = "=1.23.1", features = ["derive"] }}
-bytemuck_derive = "=1.8.1"
+bytemuck_derive = "=1.10.2"
 
 # If you need anchor-spl on Jupnet, use:
 # anchor-spl = {{ git = "https://github.com/jupnet/anchor.git", branch = "{4}", default-features = false, features = ["token_2022_extensions"] }}
