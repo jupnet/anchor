@@ -7,9 +7,9 @@ name: Locked-in
 
 on:
   push:
-    branches: [ master ]
+    branches: [ "jupnet/*" ]
   pull_request:
-    branches: [ master ]
+    branches: [ "jupnet/*" ]
   workflow_dispatch:
 
 permissions: {}

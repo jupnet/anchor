@@ -3,7 +3,7 @@ name: No Caching Tests
 on:
   push:
     branches:
-      - master
+      - "jupnet/*"
     paths-ignore:
       - "docs/**"
 

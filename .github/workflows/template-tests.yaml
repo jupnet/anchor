@@ -3,7 +3,7 @@ name: Template Tests
 on:
   push:
     branches:
-      - master
+      - "jupnet/*"
     paths-ignore:
       - "docs/**"
   pull_request:

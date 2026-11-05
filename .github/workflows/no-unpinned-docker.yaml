@@ -3,7 +3,7 @@ name: No Unpinned Docker Images
 on:
   push:
     branches:
-      - master
+      - "jupnet/*"
 
 permissions: {}
 

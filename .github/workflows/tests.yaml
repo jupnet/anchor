@@ -3,12 +3,12 @@ name: Tests
 on:
   push:
     branches:
-      - master
+      - "jupnet/*"
     paths-ignore:
       - "docs/**"
   pull_request:
     branches:
-      - master
+      - "jupnet/*"
       - anchor-next
     paths-ignore:
       - "docs/**"
