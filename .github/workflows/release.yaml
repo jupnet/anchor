@@ -124,7 +124,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: dtolnay/rust-toolchain@e97e2d8cc328f1b50210efc529dca0028893a2d9 # v1
+      - uses: dtolnay/rust-toolchain@e97e2d8cc328f1b50210efc529dca0028893a2d9 # master
         with:
           # FIXME: https://github.com/rust-lang/cargo/issues/17093
           # Stable cargo has a publishing bug. Switch back to stable when the fix is out

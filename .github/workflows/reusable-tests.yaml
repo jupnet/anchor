@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup/
@@ -83,7 +83,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup/
@@ -114,7 +114,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           persist-credentials: false
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
@@ -191,7 +191,7 @@ jobs:
           - path: tests/composite/
             name: composite.so
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup/
@@ -216,7 +216,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup/
@@ -266,7 +266,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup/
@@ -317,7 +317,7 @@ jobs:
   #   runs-on: ubuntu-latest
   #   timeout-minutes: 30
   #   steps:
-  #     - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+  #     - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
   #     - uses: ./.github/actions/setup/
   #     - uses: ./.github/actions/setup-ts/
   #     - uses: actions/cache@6f8efc29b200d32929f49075959781ed54ec270c # v3
@@ -368,7 +368,7 @@ jobs:
       matrix:
         template: [mocha, jest, rust, mollusk, litesvm]
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup/
@@ -538,7 +538,7 @@ jobs:
             path: tests/tictactoe
 
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup/
@@ -567,6 +567,27 @@ jobs:
         with:
           path: ${{ matrix.node.path }}/target
           key: cargo-${{ runner.os }}-${{ matrix.node.path }}-${{ env.ANCHOR_VERSION }}-${{ env.SOLANA_VERSION }}-${{ hashFiles('**/Cargo.lock') }}
+
+      # tests/anchor-cli-idl/test.sh dumps the Program Metadata program from mainnet
+      # unless target/deploy/program_metadata.so already exists. The mainnet program
+      # was upgraded on 2026-07-10 to a build that no longer works with the Agave
+      # 3.1.10 validator used here, so build program-metadata v1.0.1 (the last
+      # program release before that upgrade) and provide it to the test instead.
+      - name: Build pinned Program Metadata program
+        if: matrix.node.path == 'tests/anchor-cli-idl'
+        env:
+          # program@v1.0.1
+          PMP_COMMIT: fd744c2c55c0e5074905fd3fb33b3f98875b5e4b
+        run: |
+          set -euo pipefail
+          src="$RUNNER_TEMP/program-metadata"
+          out="$RUNNER_TEMP/program-metadata-out"
+          git init -q "$src"
+          git -C "$src" fetch -q --depth 1 https://github.com/solana-program/program-metadata.git "$PMP_COMMIT"
+          git -C "$src" checkout -q FETCH_HEAD
+          cargo build-sbf --manifest-path "$src/program/Cargo.toml" --sbf-out-dir "$out" -- --locked
+          mkdir -p tests/anchor-cli-idl/target/deploy
+          cp "$out/spl_program_metadata.so" tests/anchor-cli-idl/target/deploy/program_metadata.so
 
       - run: ${{ matrix.node.cmd }}
         name: ${{ matrix.node.path }} program test
